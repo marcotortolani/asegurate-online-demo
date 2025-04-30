@@ -3,20 +3,15 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white py-8 px-6">
+    <footer className="bg-primary text-white font-platform-regular py-8 px-6">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Horario de atención */}
-          <div>
-            <p className="text-sm">
-              Horario de atención en nuestras oficinas:
-              <br />
-              De Lunes a Viernes
-              <br />
-              De 09:00 a 18:00 hs.
-              <br />
-              Sábados de 09:00 a 13:00 hs.
-            </p>
+          <div className=" text-lg">
+            <p className="">Horario de atención en nuestras oficinas</p>
+            <p>De Lunes a Viernes</p>
+            <p>De 09:00 a 17:00 hs.</p>
+            <p>Sábados de 10:00 a 18:00 hs.</p>
           </div>
 
           {/* Enlaces */}

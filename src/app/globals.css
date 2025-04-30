@@ -24,7 +24,7 @@
   --font-platform-bold: 'PlatformBold', 'sans-serif';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: rgb(3, 55, 133);
+  --color-primary: rgb(19, 55, 133);
   --color-primary-grayish: rgb(146, 164, 192);
   --color-primary-dark: rgb(2, 36, 87);
   --color-secondary: rgb(242, 114, 33);

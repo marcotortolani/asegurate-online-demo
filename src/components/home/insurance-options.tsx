@@ -45,7 +45,7 @@ export default function InsuranceOptions() {
       title: 'ACCIDENTES',
       color: 'bg-orange-800',
       icon: '/icons/Icono_Accidentes.webp',
-      image: '/images/car-traveling-driving.webp',
+      image: '/images/accident-ambulance.webp',
     },
     {
       id: 'flota',
