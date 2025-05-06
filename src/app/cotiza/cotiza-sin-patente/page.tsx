@@ -1,16 +1,9 @@
 import { Car, User, CreditCard, MessageSquare } from 'lucide-react'
 import Link from 'next/link'
 
-interface QuoteResultsProps {
-  quotes?: {
-    title: string
-    price: string
-    description: string
-  }[]
-}
 
-export default function QuoteResults({
-  quotes = [
+export default function QuoteResults() {
+  const quotes = [
     {
       title: 'Responsabilidad Civil',
       price: '$29.635',
@@ -23,8 +16,7 @@ export default function QuoteResults({
       description:
         'Responsabilidad Civil hacia terceros transportados y no transportados. $6.000.000 por evento/siniestro. Moto/bicicleta y vehículos.',
     },
-  ],
-}: QuoteResultsProps) {
+  ]
   return (
     <div className="bg-white p-6 rounded-lg shadow-sm max-w-4xl mx-auto">
       <h2 className="text-xl font-medium text-black mb-2">
