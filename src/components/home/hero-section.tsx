@@ -32,12 +32,15 @@ export default function HeroSection() {
     <div className="relative overflow-hidden w-full pt-16 pb-6">
       <Swiper
         grabCursor={true}
-        loop={false}
+        loop={true}
+        speed={2500}
         autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
+          delay: 3000,
+          disableOnInteraction: true,
+          pauseOnMouseEnter: true,
+          reverseDirection: true,
+          waitForTransition: true,
         }}
-        navigation={true}
         modules={[Autoplay]}
         breakpoints={{
           640: {
@@ -122,7 +125,7 @@ const ItemSlide = ({ item }: { item: ItemSlideProps }) => {
         <div className="w-full flex justify-center">
           <button
             type="button"
-            className="bg-secondary px-4 py-1.5 text-white font-platform-bold text-2xl uppercase rounded-full"
+            className="bg-secondary px-4 py-1.5 cursor-pointer hover:bg-secondary-dark hover:scale-105 active:scale-100 text-white font-platform-bold text-2xl uppercase rounded-full transition-all duration-200 ease-in-out"
           >
             Ver beneficios
           </button>
