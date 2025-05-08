@@ -1,17 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import { usePathname } from 'next/navigation'
+
 import Link from 'next/link'
 import Image from 'next/image'
 
 import { Menu, User, ChevronRight } from 'lucide-react'
+import NavLink from '../ui/NavLink'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const pathname = usePathname()
 
-  console.log(pathname)
 
   return (
     <header className="relative w-full bg-primary border-b-4 border-b-secondary text-white py-5 px-0 flex items-center justify-between">
@@ -93,32 +92,5 @@ export default function Header() {
         </div>
       )}
     </header>
-  )
-}
-
-const NavLink = ({
-  href,
-  children,
-  className,
-}: {
-  href: string
-  children: React.ReactNode
-  className?: string
-}) => {
-  const pathname = usePathname()
-  const isActive = pathname === href
-
-  return (
-    <Link
-      href={href}
-      className={
-        className +
-        ` bg-primary-grayish hover:bg-primary-dark text-white px-4 md:h-6 lg:h-8 flex items-center justify-center font-medium md:text-xs lg:text-sm text-center rounded-full hover:text-gray-200 transition-all duration-200 ease-in-out ${
-          isActive ? 'font-bold' : ''
-        }  `
-      }
-    >
-      {children}
-    </Link>
   )
 }

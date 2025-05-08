@@ -4,13 +4,13 @@ import familyImage from '/public/images/family-draw.webp'
 
 export default function BannerPrevencionSalud() {
   return (
-    <div className="container mx-auto max-w-2xl ">
-      <div className="border-2 border-neutral-400 rounded-[2.5rem] pt-2 flex items-center justify-around">
+    <div className="container mx-auto max-w-4xl ">
+      <div className="h-40 border-2 border-neutral-400 rounded-[4rem] pt-2 flex items-center justify-around">
         <div className=" text-rose-400">
-          <p className=" text-center font-platform-bold text-3xl">
+          <p className=" text-center font-platform-bold text-5xl">
             Prevención Salud
           </p>
-          <p className=" text-center font-platform-medium text-base">
+          <p className=" text-center font-platform-medium text-xl">
             de SANCOS SEGUROS
           </p>
         </div>

@@ -17,13 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body
-        className={` antialiased bg-white`}
-      >
+      <body className={`relative antialiased bg-white`}>
         <Header />
         {children}
-        <Footer />
         <ContactButton />
+        <Footer />
       </body>
     </html>
   )

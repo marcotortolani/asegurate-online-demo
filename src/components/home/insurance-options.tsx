@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { ArrowRightCircle } from 'lucide-react'
 
 export default function InsuranceOptions() {
-  const insuranceTypes = [
+  const INSURANCE_OPTIONS = [
     {
       id: 'autos',
       title: 'AUTOS',
@@ -64,15 +64,15 @@ export default function InsuranceOptions() {
   ]
 
   return (
-    <div className="container mx-auto px-4 py-8 ">
-      <h2 className="mb-20 text-center text-3xl font-platform-medium text-primary">
+    <div className="container mx-auto mt-14 px-4 py-8 ">
+      <h2 className="mb-20 text-center text-5xl font-platform-medium text-primary">
         Descubre el <span className="text-secondary">seguro</span> que mejor
         <br />
         se adapta a <span className="text-secondary">tus necesidades</span>
       </h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-14">
-        {insuranceTypes.map((insurance, i) => (
+      <div className="w-5/6 mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-14">
+        {INSURANCE_OPTIONS.map((insurance, i) => (
           <div
             key={insurance.id}
             className={` z-0 relative aspect-[5/7] rounded-3xl shadow-md `}
@@ -103,7 +103,7 @@ export default function InsuranceOptions() {
             </div>
 
             <div
-              className={`z-50 w-full h-full absolute top-0 left-0 -translate-y-1/4 flex flex-col items-center justify-end gap-4`}
+              className={`z-50 w-full h-full absolute top-0 left-0 pb-8 flex flex-col items-center justify-end gap-6 rounded-3xl`}
             >
               <h4 className=" p-3 font-platform-medium text-white text-shadow-black text-center text-4xl uppercase">
                 {insurance.title}

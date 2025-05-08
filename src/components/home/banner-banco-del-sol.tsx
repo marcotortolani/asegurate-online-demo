@@ -4,8 +4,8 @@ import bancoDigital from '/public/images/bancodigital.webp'
 
 export default function BannerBancoDelSol() {
   return (
-    <div className="container mx-auto  max-w-2xl px-4 py-4 ">
-      <div className="w-full h-24 my-10  mx-auto bg-[rgb(124,54,192)] text-white px-10 py-4 rounded-[2.5rem] flex items-center justify-evenly">
+    <div className="container mx-auto  max-w-4xl px-4 py-4 ">
+      <div className="w-full h-32 my-10  mx-auto bg-[rgb(124,54,192)] text-white px-10 py-5 rounded-[3.5rem] flex items-center justify-evenly">
         <div className=" h-full pb-2">
           <Image
             src={bancoDelSol}
@@ -15,7 +15,7 @@ export default function BannerBancoDelSol() {
             className="h-full w-auto"
           />
         </div>
-        <div className=" w-1 h-16 bg-white content-normal" />
+        <div className=" w-1 h-20 bg-white content-normal" />
 
         <div className=" h-full">
           <Image
