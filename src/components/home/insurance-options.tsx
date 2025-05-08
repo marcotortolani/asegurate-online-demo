@@ -64,14 +64,14 @@ export default function InsuranceOptions() {
   ]
 
   return (
-    <div className="container mx-auto mt-14 px-4 py-8 ">
-      <h2 className="mb-20 text-center text-5xl font-platform-medium text-primary">
+    <div className="container mx-auto mt-4 md:mt-14 px-4 py-8 ">
+      <h2 className="mb-10 md:mb-20 text-center text-3xl md:text-5xl font-platform-medium text-primary">
         Descubre el <span className="text-secondary">seguro</span> que mejor
         <br />
         se adapta a <span className="text-secondary">tus necesidades</span>
       </h2>
 
-      <div className="w-5/6 mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-14">
+      <div className="w-full md:w-5/6 mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-10 md:gap-y-14">
         {INSURANCE_OPTIONS.map((insurance, i) => (
           <div
             key={insurance.id}
@@ -105,10 +105,10 @@ export default function InsuranceOptions() {
             <div
               className={`z-50 w-full h-full absolute top-0 left-0 pb-8 flex flex-col items-center justify-end gap-6 rounded-3xl`}
             >
-              <h4 className=" p-3 font-platform-medium text-white text-shadow-black text-center text-4xl uppercase">
+              <h4 className=" p-3 font-platform-medium text-white text-shadow-black text-center text-2xl md:text-4xl uppercase">
                 {insurance.title}
               </h4>
-              <div className=" w-1/2 text-white p-2 flex flex-col items-center gap-4">
+              <div className=" w-1/2 min-w-[160px] text-white p-2 flex flex-col items-center gap-4">
                 <Link
                   href={`/cotizar/${insurance.id}`}
                   className={`${
