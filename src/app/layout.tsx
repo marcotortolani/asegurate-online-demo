@@ -20,8 +20,8 @@ export default function RootLayout({
       <body className={`relative top-0 w-screen scroll-smooth bg-white`}>
         <Header />
         {children}
-        {/* <ContactButton /> */}
-        {/* <Footer /> */}
+        <ContactButton />
+        <Footer />
       </body>
     </html>
   )
