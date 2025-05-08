@@ -19,9 +19,9 @@ export default function NavLink({
       href={href}
       className={
         className +
-        ` bg-primary-grayish hover:bg-primary-dark text-white px-4 md:h-6 lg:h-8 flex items-center justify-center font-platform-regular md:text-xs lg:text-xl text-center rounded-full hover:text-gray-200 transition-all duration-200 ease-in-out ${
-          isActive ? 'font-bold' : ''
-        }  `
+        ` bg-primary-grayish hover:bg-primary-dark text-white md:px-4 md:h-6 lg:h-8 flex items-center justify-center font-platform-regular md:text-xs lg:text-lg xl:text-xl text-center rounded-full hover:text-gray-200 transition-all duration-200 ease-in-out ${
+          isActive ? ' font-bold ' : ''
+        } `
       }
     >
       {children}

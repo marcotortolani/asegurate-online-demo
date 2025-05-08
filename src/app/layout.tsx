@@ -17,11 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`relative antialiased bg-white`}>
+      <body className={`relative top-0 w-screen scroll-smooth bg-white`}>
         <Header />
         {children}
-        <ContactButton />
-        <Footer />
+        {/* <ContactButton /> */}
+        {/* <Footer /> */}
       </body>
     </html>
   )
