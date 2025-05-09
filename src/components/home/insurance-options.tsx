@@ -44,14 +44,14 @@ export default function InsuranceOptions() {
       id: 'accidentes',
       title: 'ACCIDENTES',
       color: 'bg-orange-800',
-      icon: '/icons/Icono_Accidentes.webp',
+      icon: '/icons/Icono_accidentes.webp',
       image: '/images/accident-ambulance.webp',
     },
     {
       id: 'flota',
       title: 'FLOTA',
       color: 'bg-blue-700',
-      icon: '/icons/Icono_Flota.webp',
+      icon: '/icons/Icono_flota.webp',
       image: '/images/fleet-delivery-vans.webp',
     },
     {
