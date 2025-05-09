@@ -16,7 +16,7 @@ export default function ContactButton() {
             alt="Atención"
             width={40}
             height={40}
-            className=" z-10 w-6 h-6 md:h-8 md:w-8"
+            className=" z-10 h-8 w-8"
           />
           {/* <div className="absolute bottom-0 right-0 h-6 w-6 bg-black skew-x-10 "></div> */}
           <div
