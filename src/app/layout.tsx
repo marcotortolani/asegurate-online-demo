@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`relative top-0 w-screen scroll-smooth bg-white`}>
+      <body className={`relative top-0 w-screen scroll-smooth overflow-x-hidden bg-white`}>
         <Header />
         {children}
         <ContactButton />

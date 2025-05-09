@@ -52,7 +52,7 @@ export default function Header() {
     <header
       className={`${
         isNavbarVisible ? 'top-0 ' : ' -top-44 lg:-top-[10.5rem]  '
-      } fixed  z-50 w-screen h-20 py-5 px-4 bg-primary border-b-4 border-b-secondary text-white flex items-center justify-between transition-all duration-300 ease-in-out`}
+      } fixed  z-50 w-screen h-20 py-5 px-4 lg:px-6 bg-primary border-b-4 border-b-secondary text-white flex items-center justify-between transition-all duration-300 ease-in-out`}
     >
       <div className="relative w-full md:max-w-screen-md lg:max-w-screen-2xl mx-auto flex items-center justify-between">
         {/* Logo - Mobile */}
