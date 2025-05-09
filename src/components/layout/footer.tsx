@@ -70,7 +70,7 @@ export default function Footer() {
               >
                 <Image
                   src="/icons/Icono_whatsapp.webp"
-                  alt="Logo Asegurate Online"
+                  alt="Icono whatsapp"
                   className="w-full h-auto"
                   width={100}
                   height={100}
@@ -82,7 +82,7 @@ export default function Footer() {
               >
                 <Image
                   src="/icons/Icono_instagram.webp"
-                  alt="Logo Asegurate Online"
+                  alt="Icono instagram"
                   className="w-full h-auto"
                   width={100}
                   height={100}
@@ -94,7 +94,7 @@ export default function Footer() {
               >
                 <Image
                   src="/icons/Icono_facebook.webp"
-                  alt="Logo Asegurate Online"
+                  alt="Icono facebook"
                   className="w-full h-auto"
                   width={100}
                   height={100}
@@ -106,7 +106,7 @@ export default function Footer() {
               >
                 <Image
                   src="/icons/Icono_x.webp"
-                  alt="Logo Asegurate Online"
+                  alt="Icono X"
                   className="w-full h-auto"
                   width={100}
                   height={100}
