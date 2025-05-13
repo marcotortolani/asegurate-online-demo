@@ -10,6 +10,7 @@ import NavLink from '../ui/NavLink'
 
 export default function Header() {
   const menuRef = useRef<HTMLDivElement>(null)
+  const buttonMenuRef = useRef<HTMLButtonElement>(null)
   const [isNavbarVisible, setIsNavbarVisible] = useState(true)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [lowerPosition, setLowerPosition] = useState(0)
@@ -38,7 +39,11 @@ export default function Header() {
   // click outside menuref
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        isMenuOpen
+      ) {
         setIsMenuOpen(false)
       }
     }
@@ -46,6 +51,7 @@ export default function Header() {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -58,8 +64,9 @@ export default function Header() {
         {/* Logo - Mobile */}
         <div className=" w-full lg:w-fit flex items-center justify-between">
           <button
+            ref={buttonMenuRef}
             className="md:mr-4 lg:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(true)}
           >
             <Menu className="h-6 w-6 text-white" />
           </button>

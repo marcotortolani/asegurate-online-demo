@@ -4,7 +4,7 @@ import atencionIcono from '/public/icons/Icono_atencion.webp'
 
 export default function ContactButton() {
   return (
-    <div className="z-50 sticky bottom-18 md:bottom-24 right-0">
+    <div className="z-50 sticky bottom-18 md:bottom-24  right-0">
       <div className="absolute -bottom-14 md:-bottom-12 right-2 md:right-8 xl:right-10">
         <button
           type="button"

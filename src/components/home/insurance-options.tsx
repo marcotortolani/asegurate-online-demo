@@ -2,67 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { ArrowRightCircle } from 'lucide-react'
+import { INSURANCE_OPTIONS } from '@/data/static-data'
 
 export default function InsuranceOptions() {
-  const INSURANCE_OPTIONS = [
-    {
-      id: 'autos',
-      title: 'AUTOS',
-      color: 'bg-blue-900',
-      icon: '/icons/Icono_autos.webp',
-      image: '/images/man-driving-car.webp',
-    },
-    {
-      id: 'motos',
-      title: 'MOTOS',
-      color: 'bg-orange-700',
-      icon: '/icons/Icono_motos.webp',
-      image: '/images/motorcycle-parking-front.webp',
-    },
-    {
-      id: 'hogar',
-      title: 'HOGAR',
-      color: 'bg-blue-600',
-      icon: '/icons/Icono_hogar.webp',
-      image: '/images/entrance-residential-house.webp',
-    },
-    {
-      id: 'comercio',
-      title: 'COMERCIO',
-      color: 'bg-orange-600',
-      icon: '/icons/Icono_comercio.webp',
-      image: '/images/man-waiting-scanned.webp',
-    },
-    {
-      id: 'art',
-      title: 'ART',
-      color: 'bg-blue-800',
-      icon: '/icons/Icono_art.webp',
-      image: '/images/male-wood-worker.webp',
-    },
-    {
-      id: 'accidentes',
-      title: 'ACCIDENTES',
-      color: 'bg-orange-800',
-      icon: '/icons/Icono_accidentes.webp',
-      image: '/images/accident-ambulance.webp',
-    },
-    {
-      id: 'flota',
-      title: 'FLOTA',
-      color: 'bg-blue-700',
-      icon: '/icons/Icono_flota.webp',
-      image: '/images/fleet-delivery-vans.webp',
-    },
-    {
-      id: 'caucion',
-      title: 'CAUCIÓN',
-      color: 'bg-orange-500',
-      icon: '/icons/Icono_caucion.webp',
-      image: '/images/handshake-business-partners.webp',
-    },
-  ]
-
   return (
     <div className="container w-full mx-auto mt-4 md:mt-14 px-4 py-8 ">
       <h2 className="mb-10 md:mb-20 text-center text-2xl md:text-5xl font-platform-medium text-primary">
