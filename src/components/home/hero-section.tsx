@@ -95,7 +95,7 @@ const ItemSlide = ({ item }: { item: ItemSlideProps }) => {
     >
       {/* Left side */}
       <div
-        className={` row-span-3 ${bgColor} lg:bg-transparent z-20 w-full h-full -mt-2 px-6 pt-8 pb-4 flex flex-col items-start justify-center gap-4 md:gap-8 rounded-[inherit]`}
+        className={` row-span-3 ${bgColor} lg:bg-transparent z-20 w-full h-full -mt-2 px-6 pt-8 pb-4 text-white flex flex-col items-start justify-center gap-4 md:gap-8 rounded-[inherit]`}
       >
         <div className=" w-full flex flex-col-reverse items-center lg:flex-col lg:items-start">
           <p className=" hidden md:block w-fit ml-7 -mb-2 font-platform-regular text-3xl leading-7 text-center text-balance">

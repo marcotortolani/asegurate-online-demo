@@ -1,33 +1,41 @@
-import { Car, User, CreditCard } from 'lucide-react'
+'use client'
+import { useState } from 'react'
+import { ManIcon, WomanIcon } from '@/utils/icons'
+import { ArrowLeftCircle } from 'lucide-react'
 
-export default function PersonalInfoForm() {
+export default function PersonalInfoForm({
+  onBackStep,
+  onNextStep,
+}: {
+  onBackStep: () => void
+  onNextStep: () => void
+}) {
+  const [gender, setGender] = useState<'male' | 'female'>('male')
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm max-w-3xl mx-auto">
-      <h2 className="text-xl font-medium text-black mb-2">
-        Cotiza sin la patente de tu auto
-      </h2>
-      <div className="h-1 w-16 bg-secondary mb-6"></div>
-
-      {/* Step indicators */}
-      <div className="flex mb-8 gap-2">
-        <button className="flex-1 p-4 border border-gray-300 rounded-md bg-white flex justify-center items-center">
-          <Car className="h-6 w-6 text-gray-400" />
-        </button>
-        <button className="flex-1 p-4 border border-gray-300 rounded-md bg-white flex justify-center items-center">
-          <User className="h-6 w-6 text-secondary fill-secondary" />
-        </button>
-        <button className="flex-1 p-4 border border-gray-300 rounded-md bg-white flex justify-center items-center">
-          <CreditCard className="h-6 w-6 text-gray-400" />
-        </button>
-      </div>
-
+    <div className="bg-white p-6 rounded-2xl shadow-sm max-w-3xl mx-auto">
       {/* Gender selection */}
       <div className="flex gap-2 mb-6">
-        <button className="p-3 bg-secondary rounded-md">
-          <User className="h-5 w-5 text-white" />
+        <button
+          type="button"
+          onClick={() => setGender('female')}
+          className={`${
+            gender === 'female'
+              ? ' bg-secondary fill-white hover:scale-105 hover:bg-secondary/80 '
+              : ' bg-primary-grayish/70 fill-primary/50 '
+          } w-20 h-14 p-3 cursor-pointer rounded-xl transition-all duration-200 ease-in-out`}
+        >
+          <WomanIcon fill="inherit" />
         </button>
-        <button className="p-3 bg-gray-300 rounded-md">
-          <User className="h-5 w-5 text-gray-600" />
+        <button
+          type="button"
+          onClick={() => setGender('male')}
+          className={`${
+            gender === 'male'
+              ? ' bg-secondary fill-white hover:scale-105 hover:bg-secondary/80 '
+              : ' bg-primary-grayish/70 fill-primary/50 hover:scale-105 hover:bg-primary-grayish/80 '
+          } w-20 h-14 p-3 cursor-pointer rounded-xl transition-all duration-200 ease-in-out`}
+        >
+          <ManIcon fill="inherit" />
         </button>
       </div>
 
@@ -36,39 +44,61 @@ export default function PersonalInfoForm() {
         <input
           type="text"
           placeholder="Código Postal"
-          className="w-full p-3 bg-white border border-gray-300 rounded-md"
+          className="w-full px-6 py-2 font-platform-regular text-xl placeholder:text-primary/60 text-primary bg-white border-4 border-gray-300 rounded-full"
         />
 
         <input
-          type="text"
+          type="number"
           placeholder="Edad"
-          className="w-full p-3 bg-white border border-gray-300 rounded-md"
+          min={18}
+          max={110}
+          className="w-full px-6 py-2 font-platform-regular text-xl placeholder:text-primary/60 text-primary bg-white border-4 border-gray-300 rounded-full"
         />
 
         <input
           type="text"
           placeholder="Nombre"
-          className="w-full p-3 bg-white border border-gray-300 rounded-md"
+          className="w-full px-6 py-2 font-platform-regular text-xl placeholder:text-primary/60 text-primary bg-white border-4 border-gray-300 rounded-full"
         />
 
         <input
           type="text"
           placeholder="Apellido"
-          className="w-full p-3 bg-white border border-gray-300 rounded-md"
+          className="w-full px-6 py-2 font-platform-regular text-xl placeholder:text-primary/60 text-primary bg-white border-4 border-gray-300 rounded-full"
         />
 
-        <div className="flex items-center mb-2">
-          <span className="mr-2">Tel. Cel.</span>
-          <div className="flex-1 flex gap-2">
+        <div className="w-full flex flex-col items-start gap-4">
+          <div className="flex items-center gap-4">
+            <label className="flex items-center gap-1">
+              <span>Tel</span>
+              <input
+                type="radio"
+                name="phone"
+                value="tel"
+                className="h-4 w-4 checked:accent-amber-600 cursor-pointer"
+              />
+            </label>
+            <label className="flex items-center gap-1">
+              <span>Cel</span>
+              <input
+                type="radio"
+                name="phone"
+                value="cel"
+                className="h-4 w-4 checked:accent-amber-600 cursor-pointer"
+                defaultChecked
+              />
+            </label>
+          </div>
+          <div className="w-full flex gap-2">
             <input
               type="text"
               placeholder="Cod. Área"
-              className="w-1/3 p-3 bg-white border border-gray-300 rounded-md"
+              className="w-1/3 px-6 py-2 font-platform-regular text-xl placeholder:text-primary/60 text-primary bg-white border-4 border-gray-300 rounded-full"
             />
             <input
               type="text"
-              placeholder="1234567890"
-              className="flex-1 p-3 bg-white border border-gray-300 rounded-md"
+              placeholder="1512345678"
+              className="w-2/3 px-6 py-2 font-platform-regular text-xl placeholder:text-primary/60 text-primary bg-white border-4 border-gray-300 rounded-full"
             />
           </div>
         </div>
@@ -76,14 +106,23 @@ export default function PersonalInfoForm() {
         <input
           type="email"
           placeholder="Correo Electrónico"
-          className="w-full p-3 bg-white border border-gray-300 rounded-md"
+          className="w-full px-6 py-2 font-platform-regular text-xl placeholder:text-primary/60 text-primary bg-white border-4 border-gray-300 rounded-full"
         />
 
         <div className="flex justify-between mt-6">
-          <button className="bg-gray-300 text-black px-6 py-3 rounded-md hover:bg-gray-400 transition-colors">
+          <button
+            type="button"
+            onClick={onBackStep}
+            className=" flex items-center gap-2 bg-neutral-800 uppercase font-platform-medium tracking-wide text-lg cursor-pointer text-white pl-4 pr-8 py-2 rounded-2xl hover:bg-neutral-600 transition-colors"
+          >
+            <ArrowLeftCircle className=" w-5 h-5" />
             Atrás
           </button>
-          <button className="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary-dark transition-colors">
+          <button
+            type="button"
+            onClick={onNextStep}
+            className="bg-primary uppercase font-platform-medium tracking-wide text-lg cursor-pointer text-white px-8 py-2 rounded-2xl hover:bg-primary-dark transition-colors"
+          >
             Cotizar
           </button>
         </div>

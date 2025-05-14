@@ -22,7 +22,7 @@ export default function BannerSection({
           />
         </div>
       </div>
-      <div className=" w-full mx-auto aspect-[14/3] relative rounded-[inherit] overflow-hidden ">
+      <div className=" w-full mx-auto aspect-[3/1] md:aspect-[14/3] relative rounded-[inherit] overflow-hidden ">
         <Image
           className="w-full h-auto object-cover"
           src={image}
@@ -31,7 +31,7 @@ export default function BannerSection({
         />
         <div className="absolute top-0 left-0 w-full h-full bg-primary/60" />
         <div className=" absolute top-0 flex items-center justify-center w-full h-full">
-          <h2 className="w-4/6 space-x-4 text-center text-pretty md:text-3xl font-platform-medium tracking-wide text-white uppercase text-shadow-black ">{text}</h2>
+          <h2 className="w-5/6 md:w-4/6 space-x-4 text-center text-pretty text-lg md:text-3xl font-platform-medium tracking-wide text-white uppercase text-shadow-black ">{text}</h2>
         </div>
       </div>
     </div>
