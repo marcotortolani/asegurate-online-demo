@@ -13,7 +13,8 @@ import VehicleForm from '@/components/cotizar/sin-patente/form-vehicle-data'
 import QuoteResults from '@/components/cotizar/sin-patente/quote-results'
 
 import { CarInfo, PersonalData, CreditCard } from '@/utils/icons'
-import Image from "next/image"
+import Image from 'next/image'
+import Link from 'next/link'
 
 const options = ['vehicle-form', 'personal-info-form', 'quote-results'] as const
 type OptionSelected = (typeof options)[number]
@@ -111,9 +112,12 @@ export default function Page() {
             <span className=" text-secondary">hacer una autoinspección</span> de
             tu vehículo?
           </p>
-          <button className=" px-4 py-2  cursor-pointer transition-colors bg-primary hover:bg-primary-grayish font-platform-medium tracking-wide text-xl uppercase text-white rounded-2xl">
+          <Link
+            href="/autoinspeccion"
+            className=" px-4 py-2  cursor-pointer transition-colors bg-primary hover:bg-primary-grayish font-platform-medium tracking-wide text-xl uppercase text-white rounded-2xl"
+          >
             Autoinspección
-          </button>
+          </Link>
         </div>
       </div>
     </div>
