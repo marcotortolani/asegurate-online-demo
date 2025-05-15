@@ -5,6 +5,7 @@ import NavLink from '../ui/NavLink'
 export default function Footer() {
   return (
     <footer className="mt-20 pb-6 md:pb-8 text-white font-platform-regular">
+      {/* Footer Asegurate */}
       <div className=" bg-primary py-8 px-6">
         <div className="container mx-auto ">
           <div className=" flex flex-col  gap-8">
@@ -70,7 +71,8 @@ export default function Footer() {
                   className="w-8 h-8 md:w-10 md:h-10 hover:scale-110 transition-all duration-200 ease-in-out"
                 >
                   <Image
-                    src="/icons/Icono_whatsapp.webp"
+                    // src="/icons/Icono_whatsapp.webp"
+                    src="/public/icons/Icono_whatsapp.webp"
                     alt="Icono whatsapp"
                     className="w-full h-auto"
                     width={100}
@@ -118,6 +120,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      {/* Footer SSN */}
       <div className="container mx-auto h-fit py-10 md:px-4 flex flex-col items-start md:gap-8 bg-white font-normal font-sans text-neutral-400  ">
         <div className="w-full py-4 grid grid-cols-2 gap-x-1 gap-y-4 md:flex md:flex-row md:flex-wrap items-center justify-around md:gap-6 border-t-2 border-gray-200">
           <div className=" ">
