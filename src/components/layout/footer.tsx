@@ -71,8 +71,7 @@ export default function Footer() {
                   className="w-8 h-8 md:w-10 md:h-10 hover:scale-110 transition-all duration-200 ease-in-out"
                 >
                   <Image
-                    // src="/icons/Icono_whatsapp.webp"
-                    src="/public/icons/Icono_whatsapp.webp"
+                    src="/icons/Icono_whatsapp.webp"
                     alt="Icono whatsapp"
                     className="w-full h-auto"
                     width={100}
