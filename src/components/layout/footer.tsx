@@ -4,7 +4,7 @@ import NavLink from '../ui/NavLink'
 
 export default function Footer() {
   return (
-    <footer className="mt-20 pb-20 text-white font-platform-regular">
+    <footer className="mt-20 pb-6 md:pb-8 text-white font-platform-regular">
       <div className=" bg-primary py-8 px-6">
         <div className="container mx-auto ">
           <div className=" flex flex-col  gap-8">
@@ -118,24 +118,24 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="container mx-auto h-fit py-10 lg:px-4 flex flex-col items-start gap-8 bg-white font-normal font-sans text-neutral-400  ">
-        <div className="w-full py-4 flex flex-col md:flex-row md:flex-wrap items-center justify-around gap-6 border-t-2 border-gray-200">
+      <div className="container mx-auto h-fit py-10 md:px-4 flex flex-col items-start md:gap-8 bg-white font-normal font-sans text-neutral-400  ">
+        <div className="w-full py-4 grid grid-cols-2 gap-x-1 gap-y-4 md:flex md:flex-row md:flex-wrap items-center justify-around md:gap-6 border-t-2 border-gray-200">
           <div className=" ">
             <p className="text-center text-sm">Nº de inscripción en SSN</p>
             <p className="text-center text-sm">102781</p>
           </div>
-          <div className="w-32 h-0.5 md:w-0.5 md:h-10 bg-neutral-400/60" />
+          <div className="hidden md:block w-32 h-0.5 md:w-0.5 md:h-10 bg-neutral-400/60" />
           <div className=" ">
             <p className="text-center text-sm">Atención al asegurado</p>
             <p className="text-center text-sm">0800-666-8400</p>
           </div>
-          <div className="w-32 h-0.5 md:w-0.5 md:h-10 bg-neutral-400/60" />
+          <div className="hidden md:block w-32 h-0.5 md:w-0.5 md:h-10 bg-neutral-400/60" />
           <div className=" ">
             <p className="text-center text-sm font-semibold text-neutral-500">
               Organismo de control
             </p>
           </div>
-          <div className="w-32 h-0.5 md:w-0.5 md:h-10 bg-neutral-400/60" />
+          <div className="hidden md:block w-32 h-0.5 md:w-0.5 md:h-10 bg-neutral-400/60" />
           <div className=" ">
             <p className="text-center text-sm font-semibold text-neutral-500">
               <Link
@@ -147,8 +147,8 @@ export default function Footer() {
               </Link>
             </p>
           </div>
-          <div className="w-32 h-0.5 md:w-0.5 md:h-10 bg-neutral-400/60" />
-          <div className="p-2">
+          <div className="hidden md:block w-32 h-0.5 md:w-0.5 md:h-10 bg-neutral-400/60" />
+          <div className="col-span-2 md:col-span-1 mx-auto md:mx-0 p-2">
             <Image
               className="w-[300px] h-auto"
               src="/SSN_Argentina_logo.png"

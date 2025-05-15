@@ -2,13 +2,13 @@ import Image from 'next/image'
 
 export default function AutoInspection() {
   return (
-    <div className="max-w-6xl mx-auto mt-8">
-      <section className="h-fit flex items-center justify-between gap-8 ">
-        <div className=" w-2/3 flex flex-col gap-10">
-          <h4 className="font-platform-medium text-left text-3xl text-primary ">
+    <div className="max-w-6xl mx-auto mt-8 px-4">
+      <section className=" px-4 md:px-8 h-fit flex flex-col-reverse md:flex-row items-center justify-between gap-4 lg:gap-8 ">
+        <div className=" md:w-10/12 lg:w-2/3 flex flex-col items-center md:items-start gap-4 md:gap-6 lg:gap-10 bg-red-300/0">
+          <h4 className="font-platform-medium text-left text-2xl md:text-3xl text-primary ">
             Con ayuda de tu teléfono puedes hacer la auto inspección
           </h4>
-          <p className=" pr-8 font-platform-medium text-left text-xl text-black ">
+          <p className=" pr-8 font-platform-medium text-left text-lg md:text-xl text-black ">
             A continuación te indicaremos cómo tomar correctamente las fotos a
             tu vehículo para hacer la auto inspección.
           </p>
@@ -17,20 +17,20 @@ export default function AutoInspection() {
           </p>
         </div>
 
-        <div className=" w-2/3 max-w-[500px] p-12 h-auto ">
+        <div className="w-5/6 md:w-8/12 lg:w-2/5 max-w-[500px] md:p-12 h-auto bg-sky-200/0 ">
           <Image
+            className=" h-full w-auto md:scale-120 lg:scale-100 "
             src="/images/requirements/auto-2d-frente.webp"
             alt="Auto"
             width={600}
             height={300}
-            className="h-full w-auto"
           />
         </div>
       </section>
 
-      <div className="h-0.75 w-2/3 mx-auto max-w-[600px] bg-secondary my-14" />
+      <div className="h-0.75 w-5/6 md:w-2/3 mx-auto max-w-[600px] bg-secondary mt-10 mb-14 md:my-14" />
 
-      <section className="w-full px-8 grid md:grid-cols-2 gap-8 font-platform-medium">
+      <section className="w-full px-2 md:px-8 grid md:grid-cols-2 gap-8 font-platform-medium">
         {/* Paso 1 */}
         <article className=" px-6 py-10 flex flex-col items-center justify-around gap-4 relative border-6 border-primary rounded-xl ">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary font-platform-medium uppercase text-2xl text-white py-1 px-4 rounded-xl ">
@@ -148,14 +148,14 @@ export default function AutoInspection() {
         </article>
       </section>
 
-      <div className="h-0.75 w-2/3 mx-auto max-w-[600px] bg-secondary my-14" />
+      <div className="h-0.75 w-5/6 md:w-2/3 mx-auto max-w-[600px] bg-secondary my-10 md:my-14" />
 
       <section className="w-full px-8 font-platform-medium">
         <div className=" ">
-          <h4 className=" w-fit px-4 py-1 mb-4 border-2 border-primary-grayish text-3xl text-primary-grayish rounded-2xl">
+          <h4 className=" w-fit px-4 py-1 mb-4 border-2 border-primary-grayish text-2xl md:text-3xl text-primary-grayish rounded-2xl">
             Otros requerimientos:
           </h4>
-          <p className=" w-2/5 text-xl">
+          <p className=" md:w-2/5 text-xl">
             Ahora y para finalizar necesitaremos una foto de tu{' '}
             <span className=" text-secondary">
               Documento de Identidad, Cédula del vehículo y GNC (opcional).
@@ -165,13 +165,13 @@ export default function AutoInspection() {
         </div>
 
         {/* Documento de Identidad */}
-        <div className=" mt-10 grid md:grid-cols-2 gap-8 ">
-          <h4 className=" col-span-2 text-center text-3xl text-primary">
+        <div className=" mt-10 xl:mt-16 grid grid-cols-1 md:grid-cols-2 xl:place-items-center gap-4 md:gap-8 ">
+          <h4 className=" md:col-span-2 text-center text-2xl md:text-3xl text-primary">
             Documento de Identidad
           </h4>
           {/* Documento Frente */}
-          <article className=" aspect-square px-6 py-4 flex flex-col items-center justify-around relative border-6 border-primary rounded-xl ">
-            <h4 className="font-platform-medium text-center text-3xl uppercase font-bold text-primary ">
+          <article className=" aspect-square xl:max-w-[400px] px-6 py-4 flex flex-col items-center justify-around relative border-6 border-primary rounded-xl ">
+            <h4 className="font-platform-medium text-center text-2xl md:text-3xl uppercase font-bold text-primary ">
               Imagen frontal
             </h4>
             <div className="px-4">
@@ -190,8 +190,8 @@ export default function AutoInspection() {
           </article>
 
           {/* Documento Dorso */}
-          <article className=" aspect-square px-6 py-4 flex flex-col items-center justify-around relative border-6 border-primary rounded-xl ">
-            <h4 className="font-platform-medium text-center text-3xl uppercase font-bold text-primary ">
+          <article className=" aspect-square xl:max-w-[400px] px-6 py-4 flex flex-col items-center justify-around relative border-6 border-primary rounded-xl ">
+            <h4 className="font-platform-medium text-center text-2xl md:text-3xl uppercase font-bold text-primary ">
               Imagen posterior
             </h4>
             <div className="px-4">
@@ -211,13 +211,13 @@ export default function AutoInspection() {
         </div>
 
         {/* Cédula del vehículo */}
-        <div className="mt-20 grid md:grid-cols-2 gap-8 ">
-          <h4 className=" col-span-2 text-center text-3xl text-primary">
+        <div className=" mt-10 xl:mt-16 grid grid-cols-1 md:grid-cols-2 xl:place-items-center gap-4 md:gap-8 ">
+          <h4 className=" md:col-span-2 text-center text-2xl md:text-3xl text-primary">
             Cédula del vehículo
           </h4>
           {/* Cecula Frente */}
-          <article className=" aspect-square px-6 py-4 flex flex-col items-center justify-around relative border-6 border-primary rounded-xl ">
-            <h4 className="font-platform-medium text-center text-3xl uppercase font-bold text-primary ">
+          <article className=" aspect-square xl:max-w-[400px] px-6 py-4 flex flex-col items-center justify-around relative border-6 border-primary rounded-xl ">
+            <h4 className="font-platform-medium text-center text-2xl md:text-3xl uppercase font-bold text-primary ">
               Imagen frontal
             </h4>
             <div className="px-4">
@@ -236,8 +236,8 @@ export default function AutoInspection() {
           </article>
 
           {/* Cecula Dorso */}
-          <article className=" aspect-square px-6 py-4 flex flex-col items-center justify-around relative border-6 border-primary rounded-xl ">
-            <h4 className="font-platform-medium text-center text-3xl uppercase font-bold text-primary ">
+          <article className=" aspect-square xl:max-w-[400px] px-6 py-4 flex flex-col items-center justify-around relative border-6 border-primary rounded-xl ">
+            <h4 className="font-platform-medium text-center text-2xl md:text-3xl uppercase font-bold text-primary ">
               Imagen posterior
             </h4>
             <div className="px-4">
@@ -256,20 +256,20 @@ export default function AutoInspection() {
           </article>
         </div>
 
-          {/* Cédula del vehículo */}
+        {/* GNC (opcional) */}
         <div className="mt-20 ">
-          <h4 className=" mb-10 text-center text-3xl text-primary ">
+          <h4 className=" mb-4 md:mb-10 text-center text-2xl md:text-3xl text-primary ">
             GNC (opcional, si lo tiene)
           </h4>
-         
 
-          {/* GNC*/}
-          <article className="w-1/3 mx-auto aspect-square px-6 py-4 flex flex-col items-center justify-around relative border-6 border-primary rounded-xl ">
-            <h4 className="font-platform-medium text-center text-3xl uppercase font-bold text-primary ">
+          <article className=" md:w-1/3 md:min-w-[300px] mx-auto aspect-square px-6 py-4 flex flex-col items-center justify-around relative border-6 border-primary rounded-xl ">
+            <h4 className="font-platform-medium text-center text-2xl md:text-3xl uppercase font-bold text-primary ">
               Imagen
             </h4>
             <div className="px-4">
-              <p className=" font-platform-bold text-[6rem] text-neutral-400">GNC</p>
+              <p className=" font-platform-bold text-[6rem] text-neutral-400">
+                GNC
+              </p>
             </div>
 
             <button className="bg-primary font-platform-regular text-lg tracking-wider text-white py-2 px-4 rounded-2xl hover:bg-primary-dark transition-colors">

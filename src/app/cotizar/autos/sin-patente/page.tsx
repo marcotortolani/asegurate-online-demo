@@ -35,11 +35,11 @@ export default function Page() {
   }, [optionSelected])
 
   return (
-    <div className="relative z-0 container mx-auto h-full p-6 mt-10 ">
+    <div className="relative z-0 container mx-auto h-full p-0 md:p-6 mt-10 ">
       <TitleSection title="Cotiza sin la patente de tu auto" />
 
       {/* Form & Selector */}
-      <div className=" z-40 relative w-full max-w-2xl lg:max-w-3xl mx-auto h-fit overflow-hidden p-4 bg-slate-200 shadow-black/60 shadow-lg rounded-3xl">
+      <div className=" z-40 relative w-full max-w-2xl lg:max-w-3xl mx-auto h-fit overflow-hidden p-2 md:p-4 bg-slate-200 shadow-black/60 shadow-lg rounded-3xl">
         {/* Step indicators */}
         <div className="mb-8 flex items-center justify-center gap-4">
           <ButtonOption

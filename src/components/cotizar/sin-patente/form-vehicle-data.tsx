@@ -6,9 +6,9 @@ export default function VehicleForm({
   onNextStep: () => void
 }) {
   return (
-    <div className="bg-white p-6 rounded-2xl max-w-3xl mx-auto">
+    <div className="h-fit bg-white p-4 md:p-6 rounded-2xl max-w-3xl mx-auto">
       {/* Form fields */}
-      <div className="space-y-4">
+      <div className="h-fit flex flex-col gap-2">
         <div className="relative">
           <input
             type="text"
