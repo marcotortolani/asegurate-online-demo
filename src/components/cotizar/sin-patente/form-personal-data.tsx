@@ -66,6 +66,11 @@ export default function PersonalInfoForm({
           placeholder="Apellido"
           className="w-full px-6 py-2 font-platform-regular text-xl placeholder:text-primary/60 text-primary bg-white border-4 border-gray-300 rounded-full"
         />
+        <input
+          type="number"
+          placeholder="DNI: 20123123"
+          className="w-full px-6 py-2 font-platform-regular text-xl placeholder:text-primary/60 text-primary bg-white border-4 border-gray-300 rounded-full"
+        />
 
         <div className="w-full flex flex-col items-start gap-4">
           <div className="flex items-center gap-4">
