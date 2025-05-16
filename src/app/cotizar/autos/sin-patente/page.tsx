@@ -56,6 +56,7 @@ export default function Page() {
         const result = await response.json()
         console.log('data: ->', result) // Para depurar en el cliente
         setData(result)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (err: any) {
         setError(err.message || 'Error al obtener la cotización')
       } finally {
