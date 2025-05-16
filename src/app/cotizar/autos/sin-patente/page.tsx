@@ -23,11 +23,11 @@ export default function Page() {
   const [optionSelected, setOptionSelected] =
     useState<OptionSelected>('vehicle-form')
   const swiperRef = useRef<SwiperType | null>(null)
-  const [data, setData] = useState(null)
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(false)
+  // const [data, setData] = useState(null)
+  // const [error, setError] = useState(null)
+  // const [loading, setLoading] = useState(false)
 
-  console.log('data: ->', data)
+  // console.log('data: ->', data)
 
   useEffect(() => {
     const index = options.indexOf(optionSelected)
@@ -39,40 +39,40 @@ export default function Page() {
     // }
   }, [optionSelected])
 
-  useEffect(() => {
-    const fetchQuotation = async () => {
-      setLoading(true)
-      setError(null)
+  // useEffect(() => {
+  //   const fetchQuotation = async () => {
+  //     setLoading(true)
+  //     setError(null)
 
-      try {
-        const response = await fetch('/api/policies', {
-          method: 'GET',
-        })
+  //     try {
+  //       const response = await fetch('/api/policies', {
+  //         method: 'GET',
+  //       })
 
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status} ${response.statusText}`)
-        }
+  //       if (!response.ok) {
+  //         throw new Error(`Error: ${response.status} ${response.statusText}`)
+  //       }
 
-        const result = await response.json()
-        console.log('data: ->', result) // Para depurar en el cliente
-        setData(result)
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      } catch (err: any) {
-        setError(err.message || 'Error al obtener la cotización')
-      } finally {
-        setLoading(false)
-      }
-    }
+  //       const result = await response.json()
+  //       console.log('data: ->', result) // Para depurar en el cliente
+  //       setData(result)
+  //     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  //     } catch (err: any) {
+  //       setError(err.message || 'Error al obtener la cotización')
+  //     } finally {
+  //       setLoading(false)
+  //     }
+  //   }
 
-    fetchQuotation()
-  }, []) // El array vacío asegura que la solicitud se haga solo al montar el componente
+  //   fetchQuotation()
+  // }, []) // El array vacío asegura que la solicitud se haga solo al montar el componente
 
   return (
     <div className="relative z-0 container mx-auto h-full p-0 md:p-6 mt-10 ">
       <TitleSection title="Cotiza sin la patente de tu auto" />
 
-      {loading && <p className="text-blue-500 text-center">Loading...</p>}
-      {error && <p className="text-red-500 text-center">Error: {error}</p>}
+      {/* {loading && <p className="text-blue-500 text-center">Loading...</p>}
+      {error && <p className="text-red-500 text-center">Error: {error}</p>} */}
 
       {/* Form & Selector */}
       <div className=" z-40 relative w-full max-w-2xl lg:max-w-3xl mx-auto h-fit overflow-hidden p-2 md:p-4 bg-slate-200 shadow-black/60 shadow-lg rounded-3xl">
