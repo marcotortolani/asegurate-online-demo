@@ -9,6 +9,8 @@ flujo guiado que integra datos de vehículos y motores de cotización de asegura
 - **Cotización de autos sin patente**: flujo multi-paso donde el usuario selecciona el
   vehículo (marca, grupo, versión, año, GNC, 0km), completa sus datos personales y
   obtiene una cotización en línea.
+- **Cotización de motos sin patente (maqueta)**: flujo multi-paso con la misma estructura
+  que el de autos, en versión visual con datos de ejemplo (sin integración de APIs).
 - **Integración con InfoAuto**: catálogo dinámico de vehículos (marcas, grupos y modelos).
 - **Integración con Sancor Seguros**: generación de cotizaciones, consulta de pólizas y
   búsqueda de localidades por código postal.
@@ -63,8 +65,10 @@ src/
 ├── app/                      # Rutas (App Router)
 │   ├── page.tsx              # Home
 │   ├── cotizar/              # Flujos de cotización
-│   │   └── autos/
-│   │       └── sin-patente/  # Cotización de autos sin patente
+│   │   ├── autos/
+│   │   │   └── sin-patente/  # Cotización de autos sin patente
+│   │   └── motos/
+│   │       └── sin-patente/  # Cotización de motos sin patente (maqueta)
 │   ├── autoinspeccion/       # Flujo de autoinspección
 │   ├── actions/              # Server actions (gestión de tokens)
 │   └── api/                  # Rutas de API (InfoAuto y Sancor Seguros)

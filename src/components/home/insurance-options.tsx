@@ -6,7 +6,7 @@ import { INSURANCE_OPTIONS } from '@/data/static-data'
 
 export default function InsuranceOptions() {
   return (
-    <div className="container w-full mx-auto mt-4 md:mt-14 px-4 py-8 ">
+    <div className="container w-full mx-auto mt-4 md:mt-14 px-4 py-8 " id="insurance-options">
       <h2 className="mb-10 md:mb-20 text-center text-2xl md:text-5xl font-platform-medium text-primary">
         Descubre el <span className="text-secondary">seguro</span> que mejor
         <br />

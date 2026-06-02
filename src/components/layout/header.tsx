@@ -83,7 +83,7 @@ export default function Header() {
         {/* Navigation - Desktop */}
         <nav className="hidden lg:flex items-center gap-2 lg:gap-6">
           <NavLink
-            href="/cotiza"
+            href="/#insurance-options"
             className="bg-secondary hover:bg-secondary-dark uppercase font-semibold  "
           >
             Cotiza tu seguro

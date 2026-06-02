@@ -5,6 +5,38 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/)
 y el proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [0.2.0] - 2026-06-02
+
+Maqueta del flujo de cotización de seguros de **motos**, replicando la estructura del
+flujo de autos pero **sin integración de APIs** (datos estáticos de ejemplo).
+
+### Added
+
+#### Flujo de cotización de motos (maqueta)
+
+- `src/app/cotizar/motos/layout.tsx` — banner de la sección con imagen e ícono de moto
+  (`motorcycle-parking-front.webp` e `Icono_motos.webp`).
+- `src/app/cotizar/motos/page.tsx` — pantalla de patente (input + "Confirmar" + enlace a
+  "Cotizar sin patente").
+- `src/app/cotizar/motos/sin-patente/page.tsx` — flujo multi-paso con Swiper
+  (vehículo → datos personales → resultados) usando solo estado local, sin tokens ni fetch.
+- `src/components/cotizar/motos/form-vehicle-data.tsx` — formulario de vehículo de maqueta
+  (Marca, Modelo, Año, Versión) con datos estáticos de ejemplo.
+- `src/components/cotizar/motos/form-personal-data.tsx` — formulario de datos personales
+  de maqueta (género, CP, edad, nombre, documento, contacto) sin consumo de API.
+- `src/utils/icons.tsx` — nuevo ícono `MotoInfo` (motocicleta) para el indicador de paso
+  del vehículo, que hereda el `fill` para el estado activo/inactivo.
+
+#### Reutilización
+
+- Se reutiliza `src/components/cotizar/sin-patente/quote-results.tsx` (resultados con datos
+  de ejemplo) y `src/components/cotizar/banner-section.tsx` para el banner.
+
+### Notes
+
+- El flujo de motos es una maqueta visual: no inicializa tokens ni dispara cotizaciones.
+- No incluye la sección de autoinspección presente en el flujo de autos.
+
 ## [0.1.0] - 2026-06-02
 
 Primera versión funcional del flujo de cotización de seguros de autos **sin patente**,

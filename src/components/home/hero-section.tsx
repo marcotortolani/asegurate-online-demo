@@ -34,6 +34,7 @@ export default function HeroSection() {
         grabCursor={true}
         loop={true}
         speed={2500}
+        centeredSlides={true}
         autoplay={{
           delay: 3000,
           disableOnInteraction: true,
@@ -44,32 +45,26 @@ export default function HeroSection() {
         modules={[Autoplay]}
         breakpoints={{
           320: {
-            centeredSlides: true,
             slidesPerView: 1.2,
             spaceBetween: 20,
           },
           640: {
-            centeredSlides: true,
             slidesPerView: 1.2,
             spaceBetween: 20,
           },
           768: {
-            centeredSlides: true,
             slidesPerView: 1.25,
             spaceBetween: 30,
           },
           1024: {
-            centeredSlides: true,
             slidesPerView: 1.2,
             spaceBetween: 20,
           },
           1280: {
-            centeredSlides: true,
             slidesPerView: 1.25,
             spaceBetween: 50,
           },
           1536: {
-            centeredSlides: true,
             slidesPerView: 1.5,
             spaceBetween: 50,
           },
