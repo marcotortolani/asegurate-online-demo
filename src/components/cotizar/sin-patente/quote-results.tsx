@@ -1,4 +1,4 @@
-interface QuoteResultsProps {
+export interface QuoteResultsProps {
   quotes?: {
     title: string
     price: string

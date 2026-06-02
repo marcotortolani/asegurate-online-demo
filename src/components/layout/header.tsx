@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { Menu, User, ChevronRight, XIcon } from 'lucide-react'
+import { Menu, ChevronRight, XIcon } from 'lucide-react'
 import NavLink from '../ui/NavLink'
 
 export default function Header() {
@@ -51,7 +51,6 @@ export default function Header() {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -79,13 +78,6 @@ export default function Header() {
               className="h-10 w-auto"
             />
           </Link>
-          <NavLink
-            href="/ingresar"
-            className="lg:hidden bg-transparent hover:bg-primary-dark pr-0 md:pr-0 flex items-center text-white md:border-[1px] md:border-white  hover:text-gray-200 "
-          >
-            <span className=" hidden md:flex">Ingresar</span>
-            <User className=" md:ml-2 md:-mr-0.5 h-full w-auto aspect-square border-2 border-white rounded-full" />
-          </NavLink>
         </div>
 
         {/* Navigation - Desktop */}
@@ -101,13 +93,6 @@ export default function Header() {
           <NavLink href="/nuestros-seguros">
             Nuestros Seguros
             <ChevronRight className="ml-1 -mr-2 h-4 w-4" />
-          </NavLink>
-          <NavLink
-            href="/ingresar"
-            className="bg-transparent hover:bg-primary-dark pr-0 md:pr-0 flex items-center text-white border-[1px] border-white  hover:text-gray-200 "
-          >
-            Ingresar
-            <User className=" ml-2 -mr-0.5 h-full w-auto aspect-square border-2 border-white rounded-full" />
           </NavLink>
         </nav>
       </div>
@@ -133,13 +118,6 @@ export default function Header() {
         </div>
         <div className="flex flex-col p-4 ">
           <nav className="w-full py-4 flex flex-col items-start gap-6 ">
-            <NavLink
-              href="/ingresar"
-              className="bg-transparent pl-4 hover:bg-primary-dark pr-0 md:pr-0 flex items-center text-white border-[1px] border-white  hover:text-gray-200 "
-            >
-              Ingresar
-              <User className=" ml-2 -mr-0.5 h-8 w-auto aspect-square border-2 border-white rounded-full" />
-            </NavLink>
             <NavLink href="/quienes-somos" className=" px-4 py-1 rounded-2xl">
               ¿Quiénes somos?
             </NavLink>

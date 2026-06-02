@@ -260,7 +260,7 @@ export const CarInfo: React.FC<SvgProps> = ({
   )
 }
 
-export const PersonalData: React.FC<SvgProps> = ({
+export const PersonalDataIcon: React.FC<SvgProps> = ({
   fill = '#FFF',
   width = '100%',
   height = '100%',

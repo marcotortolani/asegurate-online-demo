@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Asegurate Online
 
-## Getting Started
+Plataforma web de **Asegurate Online** para la cotización y contratación de seguros.
+La aplicación permite a los usuarios cotizar seguros de autos de forma online, con un
+flujo guiado que integra datos de vehículos y motores de cotización de aseguradoras.
 
-First, run the development server:
+## Características
+
+- **Cotización de autos sin patente**: flujo multi-paso donde el usuario selecciona el
+  vehículo (marca, grupo, versión, año, GNC, 0km), completa sus datos personales y
+  obtiene una cotización en línea.
+- **Integración con InfoAuto**: catálogo dinámico de vehículos (marcas, grupos y modelos).
+- **Integración con Sancor Seguros**: generación de cotizaciones, consulta de pólizas y
+  búsqueda de localidades por código postal.
+- **Autoinspección de vehículo**: guía paso a paso para la captura de fotos y documentación.
+- **Catálogo de productos**: autos, motos, hogar, comercio, ART, accidentes, flota y caución.
+- **Gestión automática de tokens**: middleware que asegura y renueva las credenciales de
+  las APIs externas antes de cada solicitud protegida.
+
+## Tecnologías
+
+- [Next.js 15](https://nextjs.org) (App Router)
+- [React 19](https://react.dev)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS 4](https://tailwindcss.com)
+- [Radix UI](https://www.radix-ui.com/) — componentes accesibles
+- [Lucide React](https://lucide.dev/) — iconos
+- [Swiper](https://swiperjs.com/) — carruseles / navegación de pasos
+
+## Requisitos previos
+
+- [Node.js](https://nodejs.org) (versión LTS recomendada)
+- [pnpm](https://pnpm.io) como gestor de paquetes
+
+## Instalación
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+La aplicación requiere variables de entorno para las integraciones con las APIs externas.
+Solicitá el archivo de configuración correspondiente al equipo antes de levantar el proyecto.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Desarrollo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm dev
+```
 
-## Learn More
+Abrí [http://localhost:3000](http://localhost:3000) en el navegador para ver la aplicación.
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts disponibles
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `pnpm dev` — inicia el servidor de desarrollo.
+- `pnpm build` — genera la build de producción.
+- `pnpm start` — inicia el servidor en modo producción.
+- `pnpm lint` — ejecuta el linter.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Estructura del proyecto
 
-## Deploy on Vercel
+```text
+src/
+├── app/                      # Rutas (App Router)
+│   ├── page.tsx              # Home
+│   ├── cotizar/              # Flujos de cotización
+│   │   └── autos/
+│   │       └── sin-patente/  # Cotización de autos sin patente
+│   ├── autoinspeccion/       # Flujo de autoinspección
+│   ├── actions/              # Server actions (gestión de tokens)
+│   └── api/                  # Rutas de API (InfoAuto y Sancor Seguros)
+├── components/               # Componentes de UI organizados por feature
+│   ├── layout/               # Header, footer, contacto
+│   ├── home/                 # Componentes del home
+│   ├── cotizar/              # Componentes del flujo de cotización
+│   └── ui/                   # Componentes reutilizables (Select, NavLink, ...)
+├── lib/                      # Utilidades (helper cn)
+├── utils/                    # Iconos y helpers
+├── data/                     # Datos estáticos (productos de seguros)
+└── middleware.ts             # Gestión de tokens de las APIs externas
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Changelog
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Los cambios de cada versión se documentan en [CHANGELOG.md](./CHANGELOG.md).

@@ -1,0 +1,66 @@
+{
+  "vehicleQuotation": {
+    "relationQuotationCode": 11,
+    "person": {
+      "identificationNumber": 11,
+      "identificationType": "sample string",
+      "isJuridicPerson": true
+    },
+    "coverModuleCodes": [
+      {
+        "offeringCode": 11
+      },
+      {
+        "offeringCode": 11
+      }
+    ],
+    "currencyCode": 11,
+    "discountCustomizations": [
+      {
+        "discountCode": 11,
+        "percentage": 11
+      },
+      {
+        "discountCode": 11,
+        "percentage": 11
+      }
+    ],
+    "policyPeriodStartEffectiveDate": "sample string",
+    "policyPeriodEndEffectiveDate": "sample string",
+    "coveredItemInsuredSum": 11,
+    "conditionCode": 11,
+    "respectClientIvaCondition": true,
+    "intermediary": {
+      "prodProducerCode": 11,
+      "upperProducerCode": 11,
+      "statisticCode": 11,
+      "sellerNumber": 11
+    },
+    "policyVigencyCode": 11,
+    "policyPaymentPeriodicityCode": 11,
+    "policyQuotas": 11,
+    "productCode": 11,
+    "zone": {
+      "postalCode": 11,
+      "cityCode": 11
+    },
+    "vehicle": {
+      "vehicleCode": "sample string",
+      "vehicleYear": 11,
+      "yearSuggestedValue": 11,
+      "vehicleUseTypeCode": 11,
+      "vehicleTrackingEquipment": true,
+      "gncInformation": {
+        "hasGNC": true,
+        "accesoryInsuredSum": 11
+      },
+      "hasAuxiliaryTires": true,
+      "zeroKM": true,
+      "zeroKMPurchaseDate": "sample string",
+      "vehicleClassCode": 11
+    },
+    "driversUnder25": true,
+    "anualKM": true,
+    "garageParking": true
+  }
+}

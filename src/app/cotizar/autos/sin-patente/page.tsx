@@ -1,8 +1,11 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import Image from 'next/image'
+import Link from 'next/link'
+
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Swiper as SwiperType } from 'swiper/types'
-
 import 'swiper/css'
 import 'swiper/css/pagination'
 
@@ -12,22 +15,132 @@ import PersonalInfoForm from '@/components/cotizar/sin-patente/form-personal-dat
 import VehicleForm from '@/components/cotizar/sin-patente/form-vehicle-data'
 import QuoteResults from '@/components/cotizar/sin-patente/quote-results'
 
-import { CarInfo, PersonalData, CreditCard } from '@/utils/icons'
-import Image from 'next/image'
-import Link from 'next/link'
+import { QuoteResultsProps } from '@/components/cotizar/sin-patente/quote-results'
+
+import { PersonalData } from '@/components/cotizar/sin-patente/form-personal-data'
+
+import { CarInfo, PersonalDataIcon, CreditCard } from '@/utils/icons'
 
 const options = ['vehicle-form', 'personal-info-form', 'quote-results'] as const
 type OptionSelected = (typeof options)[number]
 
 export default function Page() {
+  const router = useRouter()
   const [optionSelected, setOptionSelected] =
     useState<OptionSelected>('vehicle-form')
   const swiperRef = useRef<SwiperType | null>(null)
-  // const [data, setData] = useState(null)
-  // const [error, setError] = useState(null)
-  // const [loading, setLoading] = useState(false)
 
-  // console.log('data: ->', data)
+  const [vehicleData, setVehicleData] = useState<{
+    brand_id: number
+    brand_name: string
+    model: string
+    model_id: number
+    year: number
+    version: string
+    codia: number
+    hasGnc: boolean
+    isZeroKm: boolean
+  } | null>(null)
+
+  const [personalData, setPersonalData] = useState<PersonalData>({
+    name: '',
+    last_name: '',
+    age: 0,
+    email: '',
+    phone_type: 'cel',
+    phone_area_code: 0,
+    phone_number: 0,
+    identification_number: 0,
+    identification_type: 'D',
+    city: '',
+    province: '',
+    zip_code: 0, // 1427
+    city_code: 0, //
+    gender: 'male',
+    is_juridic_person: false,
+  })
+
+  const [quotesData, setQuotesData] = useState<QuoteResultsProps[]>([])
+
+  console.log('vehicleData: --> ', vehicleData)
+  console.log('personalData: --> ', personalData)
+  console.log('quotesData: --> ', quotesData)
+
+  // const fetchPolicies = async () => {
+  //   try {
+  //     const response = await fetch('/api/sancor/policies', {
+  //       method: 'GET',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //     })
+
+  //     if (!response.ok) {
+  //       throw new Error('Error al obtener las pólizas')
+  //     }
+
+  //     const data = await response.json()
+  //     console.log('data policies: ', data)
+
+  //     return data
+  //   } catch (error) {
+  //     console.error('Error al obtener las pólizas:', error)
+  //     return []
+  //   }
+  // }
+
+  const fetchQuotations = async () => {
+    try {
+      const response = await fetch('/api/sancor/quotation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (!response.ok) {
+        throw new Error('Error al obtener las cotizaciones')
+      }
+
+      const data = await response.json()
+      console.log('data quotations: ', data)
+
+      setQuotesData(data)
+
+      return data
+    } catch (error) {
+      console.error('Error al obtener las cotizaciones:', error)
+      return []
+    }
+  }
+
+  useEffect(() => {
+    async function initializeTokens() {
+      try {
+        const response = await fetch('/api/initialize-tokens', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+
+        if (!response.ok) {
+          console.error(
+            'Error al inicializar los tokens:',
+            await response.text(),
+          )
+          return
+        }
+
+        // Redirigir a la página deseada después de inicializar los tokens
+        router.replace('/cotizar/autos/sin-patente')
+      } catch (error) {
+        console.error('Error al inicializar los tokens:', error)
+      }
+    }
+
+    initializeTokens()
+  }, [router])
 
   useEffect(() => {
     const index = options.indexOf(optionSelected)
@@ -39,45 +152,14 @@ export default function Page() {
     // }
   }, [optionSelected])
 
-  // useEffect(() => {
-  //   const fetchQuotation = async () => {
-  //     setLoading(true)
-  //     setError(null)
-
-  //     try {
-  //       const response = await fetch('/api/policies', {
-  //         method: 'GET',
-  //       })
-
-  //       if (!response.ok) {
-  //         throw new Error(`Error: ${response.status} ${response.statusText}`)
-  //       }
-
-  //       const result = await response.json()
-  //       console.log('data: ->', result) // Para depurar en el cliente
-  //       setData(result)
-  //     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  //     } catch (err: any) {
-  //       setError(err.message || 'Error al obtener la cotización')
-  //     } finally {
-  //       setLoading(false)
-  //     }
-  //   }
-
-  //   fetchQuotation()
-  // }, []) // El array vacío asegura que la solicitud se haga solo al montar el componente
-
   return (
     <div className="relative z-0 container mx-auto h-full p-0 md:p-6 mt-10 ">
       <TitleSection title="Cotiza sin la patente de tu auto" />
 
-      {/* {loading && <p className="text-blue-500 text-center">Loading...</p>}
-      {error && <p className="text-red-500 text-center">Error: {error}</p>} */}
-
       {/* Form & Selector */}
       <div className=" z-40 relative w-full max-w-2xl lg:max-w-3xl mx-auto h-fit overflow-hidden p-2 md:p-4 bg-slate-200 shadow-black/60 shadow-lg rounded-3xl">
         {/* Step indicators */}
-        <div className="mb-8 flex items-center justify-center gap-4">
+        <div className="px-4 mb-8 flex items-center justify-center gap-4">
           <ButtonOption
             option={'vehicle-form'}
             isActive={optionSelected === 'vehicle-form'}
@@ -89,13 +171,20 @@ export default function Page() {
             option={'personal-info-form'}
             isActive={optionSelected === 'personal-info-form'}
             onOptionSelected={setOptionSelected}
+            // disabled={!vehicleData?.codia}
           >
-            <PersonalData fill="inherit" />
+            <PersonalDataIcon fill="inherit" />
           </ButtonOption>
           <ButtonOption
             option={'quote-results'}
             isActive={optionSelected === 'quote-results'}
             onOptionSelected={setOptionSelected}
+            // disabled={
+            //   !personalData?.identification_number ||
+            //   !personalData?.identification_type ||
+            //   !personalData?.zip_code ||
+            //   !personalData?.city_code
+            // }
           >
             <CreditCard fill="inherit" />
           </ButtonOption>
@@ -110,18 +199,25 @@ export default function Page() {
             if (next) setOptionSelected(next)
           }}
         >
-          <SwiperSlide>
+          <SwiperSlide key="vehicle-form">
             <VehicleForm
               onNextStep={() => setOptionSelected('personal-info-form')}
+              setData={setVehicleData}
             />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide key="personal-info-form">
             <PersonalInfoForm
               onBackStep={() => setOptionSelected('vehicle-form')}
-              onNextStep={() => setOptionSelected('quote-results')}
+              onNextStep={() => {
+                setOptionSelected('quote-results')
+                fetchQuotations()
+                // fetchPolicies()
+              }}
+              data={personalData}
+              setData={setPersonalData}
             />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide key="quote-results">
             <QuoteResults />
           </SwiperSlide>
         </Swiper>
@@ -165,21 +261,25 @@ const ButtonOption = ({
   isActive,
   onOptionSelected,
   children,
+  disabled,
 }: {
   option: OptionSelected
   isActive: boolean
   onOptionSelected: (option: OptionSelected) => void
   children: React.ReactNode
+  disabled?: boolean
 }) => {
   return (
     <button
       type="button"
       onClick={() => onOptionSelected(option)}
+      disabled={disabled}
       className={`${
         isActive
           ? ' bg-secondary text-white fill-white '
           : ' bg-primary-grayish/60 text-primary fill-primary '
-      } w-full h-14 flex-1 py-3 rounded-2xl flex justify-center items-center cursor-pointer transition-colors`}
+      } w-full h-12 md:h-14 flex-1 py-3 rounded-xl md:rounded-2xl flex justify-center items-center cursor-pointer transition-colors 
+         disabled:cursor-not-allowed disabled:opacity-50 `}
     >
       {children}
     </button>
