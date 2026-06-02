@@ -5,6 +5,36 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/)
 y el proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [0.2.1] - 2026-06-02
+
+Correcciones y mejoras en el slider del hero de la home (`src/components/home/hero-section.tsx`).
+
+### Fixed
+
+- El slider ya no muestra un espacio vacío al cargar/recargar la página: se duplican los
+  slides (`[...ITEMS_SLIDE, ...ITEMS_SLIDE]`) para que el modo `loop` + `centeredSlides`
+  tenga suficientes slides para clonar a ambos lados.
+- El slide central inicial ahora es el slide 2 (índice real 1) mediante
+  `onSwiper` + `slideToLoop(1, 0)`, y se reinicia el autoplay con `autoplay.start()`
+  para que el reposicionamiento no lo detenga.
+- `disableOnInteraction: false` — el autoplay se reanuda tras la interacción del usuario
+  en lugar de apagarse permanentemente.
+
+### Changed
+
+- `alt` descriptivo por slide (nuevo campo `alt` en `ITEMS_SLIDE`) en reemplazo del
+  genérico "Hero image", mejorando accesibilidad y SEO.
+- `key` de los slides más estable (`${item.image}-${index}`).
+
+### Removed
+
+- Import sin uso `swiper/css/pagination` (no se utiliza el módulo `Pagination`).
+
+### Notes
+
+- Clases Tailwind normalizadas a sus formas canónicas (`max-w-5xl`, `max-w-40`).
+- Pendiente: el botón "Ver beneficios" aún no tiene acción/destino asignado.
+
 ## [0.2.0] - 2026-06-02
 
 Maqueta del flujo de cotización de seguros de **motos**, replicando la estructura del

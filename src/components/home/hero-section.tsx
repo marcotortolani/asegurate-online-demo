@@ -5,24 +5,27 @@ import { Autoplay } from 'swiper/modules'
 import { CheckCircleIcon } from 'lucide-react'
 
 import 'swiper/css'
-import 'swiper/css/pagination'
 
 type ItemSlideProps = {
   image: string
+  alt: string
   bgColor: string
 }
 
 const ITEMS_SLIDE: ItemSlideProps[] = [
   {
     image: '/images/couple-using-laptop.webp',
+    alt: 'Pareja usando una laptop',
     bgColor: 'bg-primary',
   },
   {
     image: '/images/car-traveling-driving.webp',
+    alt: 'Persona conduciendo un auto',
     bgColor: 'bg-neutral-500',
   },
   {
     image: '/images/entrance-residential-house.webp',
+    alt: 'Entrada de una casa residencial',
     bgColor: 'bg-neutral-800',
   },
 ]
@@ -33,11 +36,15 @@ export default function HeroSection() {
       <Swiper
         grabCursor={true}
         loop={true}
+        onSwiper={(swiper) => {
+          swiper.slideToLoop(1, 0)
+          swiper.autoplay.start()
+        }}
         speed={2500}
         centeredSlides={true}
         autoplay={{
           delay: 3000,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
           pauseOnMouseEnter: true,
           reverseDirection: true,
           waitForTransition: true,
@@ -71,8 +78,8 @@ export default function HeroSection() {
         }}
         className="mySwiper"
       >
-        {ITEMS_SLIDE.map((item, index) => (
-          <SwiperSlide key={index}>
+        {[...ITEMS_SLIDE, ...ITEMS_SLIDE].map((item, index) => (
+          <SwiperSlide key={`${item.image}-${index}`}>
             <ItemSlide item={item} />
           </SwiperSlide>
         ))}
@@ -82,11 +89,11 @@ export default function HeroSection() {
 }
 
 const ItemSlide = ({ item }: { item: ItemSlideProps }) => {
-  const { image, bgColor } = item
+  const { image, alt, bgColor } = item
 
   return (
     <div
-      className={` ${bgColor} w-full max-w-screen-lg h-[80dvh] max-h-[600px] md:max-h-[750px] xl:h-auto xl:max-h-[650px] mx-auto grid grid-col-1 grid-rows-5 lg:grid-cols-2 lg:grid-rows-1 rounded-2xl lg:rounded-4xl overflow-hidden`}
+      className={` ${bgColor} w-full max-w-5xl h-[80dvh] max-h-[600px] md:max-h-[750px] xl:h-auto xl:max-h-[650px] mx-auto grid grid-col-1 grid-rows-5 lg:grid-cols-2 lg:grid-rows-1 rounded-2xl lg:rounded-4xl overflow-hidden`}
     >
       {/* Left side */}
       <div
@@ -102,7 +109,7 @@ const ItemSlide = ({ item }: { item: ItemSlideProps }) => {
           <Image
             src="/images/logo-AS.webp"
             alt="Logo Asegurate Online"
-            className="w-full max-w-[160px] lg:max-w-max h-auto"
+            className="w-full max-w-40 lg:max-w-max h-auto"
             width={300}
             height={300}
           />
@@ -147,7 +154,7 @@ const ItemSlide = ({ item }: { item: ItemSlideProps }) => {
         <div className=" relative w-full h-full lg:aspect-square overflow-hidden lg:rounded-[inherit]">
           <Image
             src={image}
-            alt="Hero image"
+            alt={alt}
             className="w-full h-full object-cover object-center lg:object-bottom"
             fill
           />
