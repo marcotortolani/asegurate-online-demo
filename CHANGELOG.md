@@ -5,6 +5,15 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/)
 y el proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [0.2.2] - 2026-06-03
+
+### Fixed
+
+- Resuelto el error de TypeScript en el editor "Cannot find module or type
+  declarations for side-effect import of './globals.css'" en `src/app/layout.tsx`.
+  Se agregó `src/types/css.d.ts` declarando el módulo `*.css` para que el TS Server
+  reconozca los imports de CSS como side-effect.
+
 ## [0.2.1] - 2026-06-02
 
 Correcciones y mejoras en el slider del hero de la home (`src/components/home/hero-section.tsx`).
