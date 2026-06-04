@@ -5,6 +5,8 @@ export const INSURANCE_OPTIONS = [
     color: 'bg-blue-900',
     icon: '/icons/Icono_autos.webp',
     image: '/images/man-driving-car.webp',
+    alt: 'Man driving a car',
+    enabled: true,
   },
   {
     id: 'motos',
@@ -12,6 +14,8 @@ export const INSURANCE_OPTIONS = [
     color: 'bg-orange-700',
     icon: '/icons/Icono_motos.webp',
     image: '/images/motorcycle-parking-front.webp',
+    alt: 'Motorcycle parking front',
+    enabled: true,
   },
   {
     id: 'hogar',
@@ -19,6 +23,8 @@ export const INSURANCE_OPTIONS = [
     color: 'bg-blue-600',
     icon: '/icons/Icono_hogar.webp',
     image: '/images/entrance-residential-house.webp',
+    alt: 'Entrance of a residential house',
+    enabled: false,
   },
   {
     id: 'comercio',
@@ -26,6 +32,8 @@ export const INSURANCE_OPTIONS = [
     color: 'bg-orange-600',
     icon: '/icons/Icono_comercio.webp',
     image: '/images/man-waiting-scanned.webp',
+    alt: 'Man waiting to be scanned at a supermarket checkout',
+    enabled: false,
   },
   {
     id: 'art',
@@ -33,13 +41,17 @@ export const INSURANCE_OPTIONS = [
     color: 'bg-blue-800',
     icon: '/icons/Icono_art.webp',
     image: '/images/male-wood-worker.webp',
+    alt: 'Male wood worker',
+    enabled: true,
   },
   {
-    id: 'accidentes',
+    id: 'accidentes-personales',
     title: 'ACCIDENTES',
     color: 'bg-orange-800',
     icon: '/icons/Icono_accidentes.webp',
     image: '/images/accident-ambulance.webp',
+    alt: 'Accident ambulance',
+    enabled: true,
   },
   {
     id: 'flota',
@@ -47,6 +59,8 @@ export const INSURANCE_OPTIONS = [
     color: 'bg-blue-700',
     icon: '/icons/Icono_flota.webp',
     image: '/images/fleet-delivery-vans.webp',
+    alt: 'Fleet of delivery vans',
+    enabled: false,
   },
   {
     id: 'caucion',
@@ -54,5 +68,7 @@ export const INSURANCE_OPTIONS = [
     color: 'bg-orange-500',
     icon: '/icons/Icono_caucion.webp',
     image: '/images/handshake-business-partners.webp',
+    alt: 'Handshake between business partners',
+    enabled: false,
   },
 ]

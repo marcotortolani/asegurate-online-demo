@@ -153,7 +153,7 @@ export default function Page() {
   }, [optionSelected])
 
   return (
-    <div className="relative z-0 container mx-auto h-full p-0 md:p-6 mt-10 ">
+    <div className="relative z-0 container mx-auto h-full p-0 md:p-6 mt-10 overflow-hidden">
       <TitleSection title="Cotiza sin la patente de tu auto" />
 
       {/* Form & Selector */}
@@ -193,6 +193,7 @@ export default function Page() {
           slidesPerView={1}
           spaceBetween={50}
           speed={1000}
+          autoHeight
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           onSlideChange={(swiper) => {
             const next = options[swiper.activeIndex]
@@ -226,8 +227,8 @@ export default function Page() {
       <div
         className={`${
           optionSelected === 'quote-results'
-            ? ' translate-y-0  '
-            : ' -translate-y-[200%] '
+            ? ' translate-y-0 opacity-100 '
+            : ' -translate-y-[200%] opacity-0 pointer-events-none '
         } z-0 w-full transition-all duration-300 ease-in-out`}
       >
         <div className=" w-3/4 mx-auto max-w-lg lg:max-w-xl h-0.5 mt-10 bg-secondary" />

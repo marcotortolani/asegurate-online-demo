@@ -6,7 +6,10 @@ import { INSURANCE_OPTIONS } from '@/data/static-data'
 
 export default function InsuranceOptions() {
   return (
-    <div className="container w-full mx-auto mt-4 md:mt-14 px-4 py-8 " id="insurance-options">
+    <div
+      className="container w-full mx-auto mt-4 md:mt-14 px-4 py-8 "
+      id="insurance-options"
+    >
       <h2 className="mb-10 md:mb-20 text-center text-2xl md:text-5xl font-platform-medium text-primary">
         Descubre el <span className="text-secondary">seguro</span> que mejor
         <br />
@@ -17,12 +20,12 @@ export default function InsuranceOptions() {
         {INSURANCE_OPTIONS.map((insurance, i) => (
           <div
             key={insurance.id}
-            className={` z-0 relative w-full aspect-[5/7] rounded-2xl md:rounded-3xl shadow-md `}
+            className={` ${insurance.enabled ? 'block' : 'hidden'} z-0 relative w-full aspect-[5/7] rounded-2xl md:rounded-3xl shadow-md `}
           >
             <div className="absolute z-0 inset-0 rounded-[inherit] overflow-hidden">
               <Image
                 src={insurance.image}
-                alt={insurance.title}
+                alt={insurance.alt}
                 className="absolute object-center object-cover w-full h-full"
                 fill
               />

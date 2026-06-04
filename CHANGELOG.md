@@ -5,6 +5,61 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/)
 y el proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [0.3.1] - 2026-06-04
+
+### Fixed
+
+- **Slider de cotización (autos y motos):** el contenedor del Swiper ya no queda
+  con espacio vacío cuando el slide activo es más bajo que el más alto. Se agrega
+  la prop `autoHeight` al componente `<Swiper>` en
+  `src/app/cotizar/autos/sin-patente/page.tsx` y
+  `src/app/cotizar/motos/sin-patente/page.tsx`, de modo que la altura del wrapper
+  se ajusta al slide visible en cada momento.
+- **Imagen del auto (autos sin patente):** la imagen decorativa que aparece debajo
+  del slider ya no se muestra encima del formulario al navegar al primer paso. Se
+  combina `overflow-hidden` en el contenedor externo con `opacity-0 pointer-events-none`
+  cuando la opción activa no es `quote-results`, y `opacity-100` cuando sí lo es,
+  garantizando que la imagen quede oculta hasta que corresponde.
+
+### Changed
+
+- **`INSURANCE_OPTIONS`** (`src/data/static-data.ts`): se agregan los campos
+  `alt` (texto alternativo descriptivo para cada imagen) y `enabled` (booleano
+  que indica si la opción se muestra en el home) a todos los ítems del array.
+  Opciones habilitadas: autos, motos, ART, accidentes-personales. Opciones
+  ocultas: hogar, comercio, flota, caución.
+- **`InsuranceOptions`** (`src/components/home/insurance-options.tsx`): las
+  tarjetas de seguro solo se renderizan cuando `insurance.enabled === true`
+  (clase `block`/`hidden`). El `alt` del `<Image>` ahora proviene del campo
+  `alt` de cada ítem en lugar del `title`.
+
+## [0.3.0] - 2026-06-03
+
+### Added
+
+- Formularios de captura para **Seguro de ART** (`/cotizar/art`) y **Seguro de
+  Accidentes Personales** (`/cotizar/accidentes-personales`), con la misma
+  estética de los formularios de cotización de autos/motos (inputs "pill",
+  paleta navy/naranja, fuentes Platform).
+- Stack de formularios basado en **react-hook-form + zod + @hookform/resolvers**,
+  con validación en cliente y mensajes de error accesibles. Se introduce como
+  estándar para los formularios de seguros del roadmap (el wizard de autos/motos
+  permanece sin cambios).
+- Componentes UI shadcn faltantes estilados con la identidad del sitio:
+  `src/components/ui/input.tsx`, `label.tsx`, `button.tsx` y `form.tsx`.
+- Capa compartida reutilizable: validadores Zod (`src/lib/validators.ts`),
+  shell de formulario con pantalla de éxito mock
+  (`src/components/cotizar/seguros/insurance-form-shell.tsx`) y campos comunes
+  (`src/components/cotizar/seguros/fields.tsx`).
+- Cada formulario expone un único punto `onSubmitData` listo para conectar el
+  envío real (email/API) en el ticket posterior "Email trigger".
+
+### Changed
+
+- `INSURANCE_OPTIONS`: el `id` de Accidentes Personales pasa de `accidentes` a
+  `accidentes-personales` para que el botón "Cotizar" del home enlace a la nueva
+  ruta `/cotizar/accidentes-personales`.
+
 ## [0.2.2] - 2026-06-03
 
 ### Fixed

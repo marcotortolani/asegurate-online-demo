@@ -36,7 +36,7 @@ export default function Page() {
       {/* Form & Selector */}
       <div className=" z-40 relative w-full max-w-2xl lg:max-w-3xl mx-auto h-fit overflow-hidden p-2 md:p-4 bg-slate-200 shadow-black/60 shadow-lg rounded-3xl">
         {/* Step indicators */}
-        <div className="px-4 mb-8 flex items-center justify-center gap-4">
+        <div className=" px-4 mb-8 flex items-center justify-center gap-4">
           <ButtonOption
             option={'vehicle-form'}
             isActive={optionSelected === 'vehicle-form'}
@@ -63,6 +63,7 @@ export default function Page() {
           slidesPerView={1}
           spaceBetween={50}
           speed={1000}
+          autoHeight
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           onSlideChange={(swiper) => {
             const next = options[swiper.activeIndex]
