@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import NavLink from '../ui/NavLink'
+import pkg from '../../../package.json'
 
 export default function Footer() {
   return (
@@ -35,6 +36,7 @@ export default function Footer() {
 
             <div className=" w-full h-1 bg-white rounded-full"></div>
 
+            <div className="flex flex-col gap-4">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
               {/* Enlaces */}
               <div className="flex flex-wrap items-center gap-6 lg:gap-6 ">
@@ -115,6 +117,8 @@ export default function Footer() {
                   />
                 </Link>
               </div>
+            </div>
+              <p className="text-xs text-white/30 pl-1">v{pkg.version}</p>
             </div>
           </div>
         </div>

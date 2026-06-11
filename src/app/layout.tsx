@@ -4,10 +4,12 @@ import './globals.css'
 import Header from '@/components/layout/header'
 import Footer from '@/components/layout/footer'
 import ContactButton from '@/components/layout/contact-button'
+import pkg from '../../package.json'
 
 export const metadata: Metadata = {
   title: 'Asegurate Online',
   description: '',
+  generator: `Asegurate Online v${pkg.version}`,
 }
 
 export default function RootLayout({
