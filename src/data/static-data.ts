@@ -60,7 +60,7 @@ export const INSURANCE_OPTIONS = [
     icon: '/icons/Icono_flota.webp',
     image: '/images/fleet-delivery-vans.webp',
     alt: 'Fleet of delivery vans',
-    enabled: false,
+    enabled: true,
   },
   {
     id: 'caucion',
@@ -69,6 +69,6 @@ export const INSURANCE_OPTIONS = [
     icon: '/icons/Icono_caucion.webp',
     image: '/images/handshake-business-partners.webp',
     alt: 'Handshake between business partners',
-    enabled: false,
+    enabled: true,
   },
 ]

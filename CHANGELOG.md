@@ -5,6 +5,63 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/)
 y el proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [0.4.0] - 2026-06-11
+
+### Added
+
+- Formularios de captura para **Seguro de Flota** (`/cotizar/flota`) y **Seguro de Caución**
+  (`/cotizar/caucion`), con la misma estética de los formularios existentes (inputs "pill",
+  paleta navy/naranja, fuentes Platform).
+- **Flota** captura: Empresa, CUIT, Contacto, Teléfono, Mail, Cantidad de vehículos (numérico)
+  y Tipo (select: Autos / Camionetas / Camiones / Utilitarios / Motos).
+- **Caución** captura: Razón social, CUIT, Actividad, Antigüedad (numérico), Facturación anual
+  (numérico), Contacto, Teléfono, Mail y Tipo (select: Alquiler / Licitación / Ejecución de
+  contrato / Aduanera / Judicial).
+- Componente `SelectField` genérico (`src/components/cotizar/seguros/fields.tsx`) conectado a
+  react-hook-form, con estilo "pill" para coincidir con los `Input` existentes. Primer uso del
+  componente shadcn `Select` en formularios de seguros.
+- Validadores Zod reutilizables en `src/lib/validators.ts`: `enteroPositivo` (entero ≥ 1),
+  `montoPositivo` (número > 0), `soloLetras` (texto sin dígitos para campos de nombre de
+  persona) y `textoRequerido` con `.max()` en todos los campos de empresa/actividad/rubro.
+- Presets de campo reutilizables: `CuitField` (maxLength 13, sanitize dígitos y guiones),
+  `ContactoField` (sanitize solo letras y espacios). Todos los presets existentes
+  (`NombreField`, `TelefonoField`) incorporan su propio `sanitize` para filtrar caracteres
+  inválidos mientras el usuario escribe.
+- Prop `sanitize` en `TextField`: función que filtra el valor en `onChange` antes de que
+  llegue a react-hook-form, eliminando caracteres no permitidos en tiempo real.
+- Props `maxLength`, `min` y `max` en `TextField`, propagadas al `<input>` subyacente.
+- Fondo blanco (`bg-white`) y sombra en el dropdown de `SelectField`; fondo anterior era
+  transparente por ausencia de la variable CSS `--popover`.
+- `mode: 'onTouched'` en todos los `useForm`: los errores de Zod aparecen al salir del campo,
+  no solo al hacer submit.
+
+### Fixed
+
+- **`SelectField` (todos los formularios):** el campo Select nunca se marcaba como "touched"
+  al cerrarse sin seleccionar porque no había `onBlur`. Agregado
+  `onOpenChange={(open) => { if (!open) field.onBlur() }}` para que la validación se dispare
+  al cerrar el dropdown, consistente con el comportamiento de los demás campos.
+- **`soloLetrasYEspacios`:** la secuencia `''-` dentro de la clase de caracteres del regex
+  creaba un rango U+0027–U+002D que permitía accidentalmente `(`, `)`, `*`, `+`, `,` en
+  campos de nombre/contacto. Corregido a `[...\s'\-]` con guión explícitamente escapado.
+- **`soloTelefono`:** el sanitizer permitía `(` y `)` que el validator Zod de teléfono
+  rechaza, generando un error confuso. Eliminados los paréntesis del sanitizer para mantener
+  consistencia con el regex de validación.
+- **Fecha de nacimiento (`/cotizar/accidentes-personales`):** el input de fecha no tenía
+  atributo `max`, permitiendo seleccionar fechas futuras en el picker nativo. Ahora incluye
+  `max` con la fecha actual, bloqueando la selección antes de llegar a la validación Zod.
+- **CUIT (todos los formularios):** se reemplazó el `TextField` manual por el preset
+  `CuitField` que centraliza `maxLength={13}` y el sanitize de dígitos y guiones.
+- **Validación de formato CUIT:** el validator ahora aplica el regex
+  `^(\d{2}-?\d{8}-?\d{1})$` (acepta con o sin guiones) además del chequeo de 11 dígitos.
+- **`nombreCompleto`:** agregado `.refine` que rechaza dígitos; los nombres de persona no
+  pueden contener números.
+
+### Changed
+
+- **`INSURANCE_OPTIONS`** (`src/data/static-data.ts`): se activa `enabled: true` en los ítems
+  `flota` y `caucion`; ambas opciones ahora se muestran en el grid del home.
+
 ## [0.3.1] - 2026-06-04
 
 ### Fixed

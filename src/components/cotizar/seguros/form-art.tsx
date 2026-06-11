@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button'
 import { Form } from '@/components/ui/form'
 import InsuranceFormShell from '@/components/cotizar/seguros/insurance-form-shell'
 import {
+  CuitField,
   EmailField,
   LocalidadField,
   NombreField,
@@ -26,9 +27,9 @@ import {
 
 const artSchema = z.object({
   nombre: nombreCompleto,
-  razonSocial: textoRequerido('Ingresá la empresa o razón social'),
+  razonSocial: textoRequerido('Ingresá la empresa o razón social').max(100, 'Demasiado largo'),
   cuit: cuit,
-  rubro: textoRequerido('Ingresá el rubro de actividad'),
+  rubro: textoRequerido('Ingresá el rubro de actividad').max(80, 'Demasiado largo'),
   telefono: telefono,
   email: email,
   localidad: localidad,
@@ -46,6 +47,7 @@ export default function FormArt({
 
   const form = useForm<ArtFormData>({
     resolver: zodResolver(artSchema),
+    mode: 'onTouched',
     defaultValues: {
       nombre: '',
       razonSocial: '',
@@ -87,12 +89,7 @@ export default function FormArt({
             placeholder="Ej: Comercio S.A."
             autoComplete="organization"
           />
-          <TextField<ArtFormData>
-            name="cuit"
-            label="CUIT"
-            placeholder="Ej: 30-12345678-9"
-            inputMode="numeric"
-          />
+          <CuitField<ArtFormData> name="cuit" />
           <TextField<ArtFormData>
             name="rubro"
             label="Rubro de actividad"

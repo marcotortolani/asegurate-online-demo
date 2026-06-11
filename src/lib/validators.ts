@@ -9,6 +9,16 @@ export const nombreCompleto = z
   .trim()
   .min(3, 'Ingresá tu nombre y apellido')
   .max(80, 'Demasiado largo')
+  .refine((v) => !/\d/.test(v), 'El nombre no puede contener números')
+
+// Texto solo letras (para nombres de personas: contacto, nombre, etc.)
+export const soloLetras = (mensaje = 'Campo requerido') =>
+  z
+    .string()
+    .trim()
+    .min(2, mensaje)
+    .max(80, 'Demasiado largo')
+    .refine((v) => !/\d/.test(v), 'Este campo no puede contener números')
 
 export const email = z
   .string()
@@ -33,6 +43,10 @@ export const cuit = z
   .trim()
   .min(1, 'Ingresá el CUIT')
   .refine(
+    (v) => /^(\d{2}-?\d{8}-?\d{1})$/.test(v.replace(/\s/g, '')),
+    'Formato inválido. Usá XX-XXXXXXXX-X'
+  )
+  .refine(
     (v) => v.replace(/\D/g, '').length === 11,
     'El CUIT debe tener 11 dígitos'
   )
@@ -45,6 +59,24 @@ export const dni = z
 
 export const textoRequerido = (mensaje = 'Campo requerido') =>
   z.string().trim().min(1, mensaje)
+
+export const enteroPositivo = (mensaje = 'Ingresá un número válido') =>
+  z
+    .string()
+    .min(1, mensaje)
+    .refine((v) => {
+      const n = Number(v)
+      return !Number.isNaN(n) && Number.isInteger(n) && n >= 1
+    }, mensaje)
+
+export const montoPositivo = (mensaje = 'Ingresá un monto válido') =>
+  z
+    .string()
+    .min(1, mensaje)
+    .refine((v) => {
+      const n = Number(v)
+      return !Number.isNaN(n) && n > 0
+    }, mensaje)
 
 // Fecha de nacimiento desde un <input type="date"> (formato YYYY-MM-DD).
 // Exige una fecha válida y edad mínima (por defecto 18 años).

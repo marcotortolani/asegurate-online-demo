@@ -45,6 +45,7 @@ export default function FormAccidentesPersonales({
 
   const form = useForm<AccidentesFormData>({
     resolver: zodResolver(accidentesSchema),
+    mode: 'onTouched',
     defaultValues: {
       nombre: '',
       dni: '',
@@ -84,11 +85,14 @@ export default function FormAccidentesPersonales({
             label="DNI"
             placeholder="Ej: 20123123"
             inputMode="numeric"
+            maxLength={8}
+            sanitize={(v) => v.replace(/\D/g, '')}
           />
           <TextField<AccidentesFormData>
             name="fechaNacimiento"
             label="Fecha de nacimiento"
             type="date"
+            max={new Date().toISOString().split('T')[0]}
           />
           <TelefonoField<AccidentesFormData> name="telefono" />
           <EmailField<AccidentesFormData> name="email" />
