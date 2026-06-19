@@ -110,6 +110,7 @@ export default function FormHogar({
             inputMode="numeric"
             maxLength={8}
             sanitize={(v) => v.replace(/\D/g, '')}
+            hint="Sin puntos, los números seguidos. Ej: 30123456"
           />
           <TelefonoField<HogarFormData> name="telefono" />
           <EmailField<HogarFormData> name="email" />

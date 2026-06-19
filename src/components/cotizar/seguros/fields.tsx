@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/select'
 import {
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -32,6 +33,7 @@ export function TextField<TValues extends FieldValues>({
   min,
   max,
   sanitize,
+  hint,
 }: {
   name: Path<TValues>
   label: string
@@ -43,6 +45,7 @@ export function TextField<TValues extends FieldValues>({
   min?: number | string
   max?: number | string
   sanitize?: (value: string) => string
+  hint?: string
 }) {
   return (
     <FormField<TValues>
@@ -68,6 +71,7 @@ export function TextField<TValues extends FieldValues>({
               }}
             />
           </FormControl>
+          {hint && <FormDescription>{hint}</FormDescription>}
           <FormMessage />
         </FormItem>
       )}
@@ -116,12 +120,13 @@ export function TelefonoField<T extends FieldValues>({ name }: { name: Path<T> }
   return (
     <TextField<T>
       name={name}
-      label="Teléfono"
-      placeholder="Ej: 11 1512345678"
+      label="Teléfono celular"
+      placeholder="Ej: 1112345678"
       type="tel"
       inputMode="tel"
       autoComplete="tel"
       sanitize={soloTelefono}
+      hint="Celular sin el 0 ni el 15, los números seguidos. Ej: 1112345678"
     />
   )
 }
@@ -131,10 +136,11 @@ export function CuitField<T extends FieldValues>({ name }: { name: Path<T> }) {
     <TextField<T>
       name={name}
       label="CUIT"
-      placeholder="Ej: 30-12345678-9"
+      placeholder="Ej: 30123456789"
       inputMode="numeric"
-      maxLength={13}
-      sanitize={soloCuit}
+      maxLength={11}
+      sanitize={(v) => v.replace(/\D/g, '')}
+      hint="Sin guiones, los números seguidos. Ej: 30123456789"
     />
   )
 }

@@ -83,10 +83,11 @@ export default function FormAccidentesPersonales({
           <TextField<AccidentesFormData>
             name="dni"
             label="DNI"
-            placeholder="Ej: 20123123"
+            placeholder="Ej: 30123456"
             inputMode="numeric"
             maxLength={8}
             sanitize={(v) => v.replace(/\D/g, '')}
+            hint="Sin puntos, los números seguidos. Ej: 30123456"
           />
           <TextField<AccidentesFormData>
             name="fechaNacimiento"

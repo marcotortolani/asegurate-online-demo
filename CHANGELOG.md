@@ -5,6 +5,29 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/)
 y el proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [0.6.0] - 2026-06-19
+
+### Added
+
+- **Banner** en las páginas de **Seguro de Comercio** (`/cotizar/comercio`) y **Seguro de Hogar**
+  (`/cotizar/hogar`): nuevos archivos `layout.tsx` en cada ruta que renderizan `BannerSection`
+  con imagen e ícono propios de cada seguro, replicando el patrón de ART, Caución, Flota y
+  Accidentes Personales.
+- **Prop `hint`** en `TextField` (`src/components/cotizar/seguros/fields.tsx`): texto aclaratorio
+  opcional que se muestra debajo del input mediante el componente `FormDescription` (ya existente
+  en `form.tsx`). Hoy sin uso, ahora activado para los campos sensibles.
+
+### Changed
+
+- **`TelefonoField`**: label cambiado a **"Teléfono celular"**, placeholder a `"Ej: 1112345678"`,
+  hint: `"Celular sin el 0 ni el 15, los números seguidos."`. Aplica a todos los formularios de
+  seguros (ART, Accidentes Personales, Flota, Caución, Comercio, Hogar).
+- **`CuitField`**: placeholder a `"Ej: 30123456789"`, `maxLength` reducido a 11 (solo dígitos,
+  sin guiones), sanitize actualizado a `/\D/g` (elimina todo lo que no sea dígito),
+  hint: `"Sin guiones, los números seguidos."`. El validator Zod `cuit` no cambia.
+- **Campo DNI** (`form-accidentes-personales.tsx`, `form-hogar.tsx`): placeholder unificado a
+  `"Ej: 30123456"`, hint añadido: `"Sin puntos, los números seguidos."`.
+
 ## [0.5.0] - 2026-06-19
 
 ### Added
