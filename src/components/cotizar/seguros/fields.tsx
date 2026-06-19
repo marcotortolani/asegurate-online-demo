@@ -64,9 +64,7 @@ export function TextField<TValues extends FieldValues>({
               max={max}
               {...field}
               onChange={(e) => {
-                const val = sanitize
-                  ? sanitize(e.target.value)
-                  : e.target.value
+                const val = sanitize ? sanitize(e.target.value) : e.target.value
                 field.onChange(val)
               }}
             />
@@ -85,14 +83,14 @@ const soloLetrasYEspacios = (v: string) =>
   v.replace(/[^a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s'\-]/g, '')
 
 // Mantiene solo los caracteres aceptados por el validator de teléfono.
-const soloTelefono = (v: string) =>
-  v.replace(/[^0-9\s+\-]/g, '')
-
-const soloCuit = (v: string) =>
-  v.replace(/[^0-9-]/g, '')
+const soloTelefono = (v: string) => v.replace(/[^0-9\s+\-]/g, '')
 
 // Presets de los campos compartidos por varios formularios.
-export function NombreField<T extends FieldValues>({ name }: { name: Path<T> }) {
+export function NombreField<T extends FieldValues>({
+  name,
+}: {
+  name: Path<T>
+}) {
   return (
     <TextField<T>
       name={name}
@@ -104,7 +102,11 @@ export function NombreField<T extends FieldValues>({ name }: { name: Path<T> }) 
   )
 }
 
-export function ContactoField<T extends FieldValues>({ name }: { name: Path<T> }) {
+export function ContactoField<T extends FieldValues>({
+  name,
+}: {
+  name: Path<T>
+}) {
   return (
     <TextField<T>
       name={name}
@@ -116,7 +118,11 @@ export function ContactoField<T extends FieldValues>({ name }: { name: Path<T> }
   )
 }
 
-export function TelefonoField<T extends FieldValues>({ name }: { name: Path<T> }) {
+export function TelefonoField<T extends FieldValues>({
+  name,
+}: {
+  name: Path<T>
+}) {
   return (
     <TextField<T>
       name={name}
@@ -126,7 +132,7 @@ export function TelefonoField<T extends FieldValues>({ name }: { name: Path<T> }
       inputMode="tel"
       autoComplete="tel"
       sanitize={soloTelefono}
-      hint="Celular sin el 0 ni el 15, los números seguidos. Ej: 1112345678"
+      hint="Celular sin el 0 ni el 15, los números seguidos."
     />
   )
 }
@@ -140,7 +146,7 @@ export function CuitField<T extends FieldValues>({ name }: { name: Path<T> }) {
       inputMode="numeric"
       maxLength={11}
       sanitize={(v) => v.replace(/\D/g, '')}
-      hint="Sin guiones, los números seguidos. Ej: 30123456789"
+      hint="Sin guiones, los números seguidos."
     />
   )
 }
@@ -158,7 +164,11 @@ export function EmailField<T extends FieldValues>({ name }: { name: Path<T> }) {
   )
 }
 
-export function LocalidadField<T extends FieldValues>({ name }: { name: Path<T> }) {
+export function LocalidadField<T extends FieldValues>({
+  name,
+}: {
+  name: Path<T>
+}) {
   return (
     <TextField<T>
       name={name}
@@ -189,7 +199,9 @@ export function SelectField<TValues extends FieldValues>({
           <Select
             onValueChange={field.onChange}
             value={field.value}
-            onOpenChange={(open) => { if (!open) field.onBlur() }}
+            onOpenChange={(open) => {
+              if (!open) field.onBlur()
+            }}
           >
             <FormControl>
               <SelectTrigger className="w-full px-4 md:px-6 py-2 h-auto font-platform-regular text-xl text-primary bg-white border-4 border-gray-300 rounded-full transition-colors focus:outline-none focus:border-secondary focus:ring-0 focus:ring-offset-0 data-[placeholder]:text-primary/60 aria-[invalid=true]:border-red-400">

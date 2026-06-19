@@ -28,6 +28,13 @@ y el proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 - **Campo DNI** (`form-accidentes-personales.tsx`, `form-hogar.tsx`): placeholder unificado a
   `"Ej: 30123456"`, hint añadido: `"Sin puntos, los números seguidos."`.
 
+### Fixed
+
+- **`fields.tsx`**: eliminada la constante `soloCuit` que quedó sin uso tras la actualización del
+  `CuitField`. Formateado del código con Prettier (multiline ternarios, destructuring de props).
+- **`form-accidentes-personales.tsx` y `form-hogar.tsx`**: formateado del ternario del botón de
+  submit para cumplir con el límite de longitud de línea de Prettier.
+
 ## [0.5.0] - 2026-06-19
 
 ### Added

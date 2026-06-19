@@ -87,7 +87,7 @@ export default function FormAccidentesPersonales({
             inputMode="numeric"
             maxLength={8}
             sanitize={(v) => v.replace(/\D/g, '')}
-            hint="Sin puntos, los números seguidos. Ej: 30123456"
+            hint="Sin puntos, los números seguidos."
           />
           <TextField<AccidentesFormData>
             name="fechaNacimiento"
@@ -105,7 +105,9 @@ export default function FormAccidentesPersonales({
               variant="primary"
               disabled={form.formState.isSubmitting}
             >
-              {form.formState.isSubmitting ? 'Enviando…' : 'Solicitar cotización'}
+              {form.formState.isSubmitting
+                ? 'Enviando…'
+                : 'Solicitar cotización'}
             </Button>
           </div>
         </form>
