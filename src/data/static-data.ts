@@ -24,7 +24,7 @@ export const INSURANCE_OPTIONS = [
     icon: '/icons/Icono_hogar.webp',
     image: '/images/entrance-residential-house.webp',
     alt: 'Entrance of a residential house',
-    enabled: false,
+    enabled: true,
   },
   {
     id: 'comercio',
@@ -33,7 +33,7 @@ export const INSURANCE_OPTIONS = [
     icon: '/icons/Icono_comercio.webp',
     image: '/images/man-waiting-scanned.webp',
     alt: 'Man waiting to be scanned at a supermarket checkout',
-    enabled: false,
+    enabled: true,
   },
   {
     id: 'art',

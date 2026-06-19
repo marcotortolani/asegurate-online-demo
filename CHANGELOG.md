@@ -5,6 +5,25 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/)
 y el proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [0.5.0] - 2026-06-19
+
+### Added
+
+- Formularios de captura para **Seguro de Comercio** (`/cotizar/comercio`) y **Seguro de Hogar**
+  (`/cotizar/hogar`), con la misma estética de los formularios existentes (inputs "pill",
+  paleta navy/naranja, fuentes Platform).
+- **Comercio** captura datos del negocio: Razón social, Nombre de fantasía, CUIT, Actividad,
+  Antigüedad (numérico, años), Teléfono, Email; y datos de ubicación: Dirección, Localidad y
+  Tenencia del local (select: Propio / Alquilado).
+- **Hogar** captura datos del titular: Nombre y apellido, DNI, Teléfono, Email; y datos de la
+  vivienda: Dirección, Localidad, Tipo (select: Casa / Departamento / Barrio cerrado / Quinta),
+  Condición (select: Propietario / Inquilino) y Uso (select: Permanente / Fin de semana).
+
+### Changed
+
+- **`INSURANCE_OPTIONS`** (`src/data/static-data.ts`): se activa `enabled: true` en los ítems
+  `comercio` y `hogar`; ambas opciones ahora se muestran en el grid del home.
+
 ## [0.4.0] - 2026-06-11
 
 ### Added
